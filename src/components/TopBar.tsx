@@ -78,7 +78,7 @@ const TopBar = () => {
             onClick={handleTrialClick} 
             className="relative overflow-hidden bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-400 hover:to-yellow-500 text-black text-xs font-bold px-5 py-2.5 rounded-full transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl group"
           >
-            <span className="relative z-10">Register Free Trial</span>
+            <span className="relative z-10">Join Our Class</span>
             <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:animate-ping-slow">
               <div className="w-4 h-4 bg-yellow-300 rounded-full"></div>
@@ -136,7 +136,7 @@ const TopBar = () => {
               Events
             </Link>
             <Link 
-              to="/branches"
+              to="/floor"
               className="flex items-center px-4 py-2 rounded-lg transition-all duration-300 text-white hover:text-yellow-400 hover:bg-gray-800"
             >
               Branches
@@ -192,11 +192,11 @@ const TopBar = () => {
               Events
             </Link>
             <Link 
-              to="/branches"
+              to="/floor"
               className="text-white hover:text-yellow-400 transition-all duration-300 py-3 px-4 rounded-md hover:bg-gray-800"
               onClick={() => setIsMenuOpen(false)}
             >
-              Branches
+              Floor
             </Link>
           </div>
         </div>

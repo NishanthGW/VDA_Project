@@ -48,7 +48,7 @@
     const extendeddatas = [...datas, ...datas.slice(0, itemsPerSlide)];
 
     return (
-      <div className="bg-gray-900 text-white py-10 px-4">
+      <div className="bg-gradient-to-br from-black via-gray-900 to-black text-white py-10 px-4">
         <h2 className="text-3xl font-bold text-center mb-8">What Our Clients Say</h2>
         <div className="max-w-6xl mx-auto overflow-hidden">
           <div
