@@ -1,15 +1,20 @@
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import emailjs from 'emailjs-com';
-import { FaEnvelope, FaMapMarkerAlt, FaCalendarAlt, FaUser, FaChild, FaPaperPlane, FaClock } from 'react-icons/fa';
+import { FaEnvelope, FaMapMarkerAlt, FaUser, FaChild, FaPaperPlane, FaClock } from 'react-icons/fa';
 
 // EmailJS configuration
 const EMAILJS_CONFIG = {
-  SERVICE_ID: 'service_un5fj0h',
-  TEMPLATE_ID_TRIAL: 'template_n47fgqi',
-  TEMPLATE_ID_RENTAL: 'template_x20a2kn',
-  USER_ID: 'fl1hHKZQgJE0r7YUA'
+  SERVICE_ID: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+  TEMPLATE_ID_TRIAL: import.meta.env.VITE_EMAILJS_TEMPLATE_ID_TRIAL,
+  TEMPLATE_ID_RENTAL: import.meta.env.VITE_EMAILJS_TEMPLATE_ID_RENTAL,
+  USER_ID: import.meta.env.VITE_EMAILJS_USER_ID
 };
+
+// Type guard to check if environment variables are defined
+if (!EMAILJS_CONFIG.SERVICE_ID || !EMAILJS_CONFIG.USER_ID) {
+  console.error('Missing required EmailJS configuration. Please check your environment variables.');
+}
 
 const TrialClass = () => {
   const location = useLocation();

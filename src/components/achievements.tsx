@@ -69,7 +69,7 @@ const Achievement: React.FC = () => {
   return (
     
     <Parallax
-      bgImage="/src/assets/bg_ach.jpg"
+      bgImage="/assets/bg_ach.jpg"
       strength={300}
       className="bg-cover bg-center h-[100vh] pt-20"
     >

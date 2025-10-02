@@ -30,9 +30,9 @@ const Space = () => {
 
   // Image paths
   const images: string[] = [
-    '/src/assets/cv1.png',
-    '/src/assets/cv2.png',
-    '/src/assets/cv3.png'
+    '/assets/cv1.png',
+    '/assets/cv2.png',
+    '/assets/cv3.png'
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
@@ -71,7 +71,7 @@ const Space = () => {
   };
 
   return (
-    <div className="bg-[url('/src/assets/bg5.png')] bg-cover bg-center bg-black text-white py-16 px-4">
+    <div className="bg-[url('/assets/bg5.png')] bg-cover bg-center bg-black text-white py-16 px-4">
       <h2 className="text-5xl font-bold text-center mb-16">Our <span className="text-yellow-400">Vibe</span>, Your <span className="text-yellow-400">Vibe</span></h2>
       <div className="max-w-6xl mx-auto">
         {/* Slideshow Container - Increased height */}

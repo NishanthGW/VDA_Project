@@ -169,7 +169,7 @@ const Join = () => {
     <div 
       className="min-h-screen py-16 px-4 flex items-center justify-center relative"
       style={{
-        backgroundImage: 'url("/src/assets/join.jpg")',
+        backgroundImage: 'url("/assets/join.jpg")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',

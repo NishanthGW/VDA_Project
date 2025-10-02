@@ -35,19 +35,19 @@ const AnimatedCounter = ({ target, duration = 2000, prefix = '', suffix = '' }: 
 const Slideshow = () => {
   const slides = [
     {
-      image: '/src/assets/ss1.png',
+      image: '/assets/ss1.png',
       title: 'Discover Your Rhythm',
       description: 'Join our world-class dance academy and unleash your potential through movement and expression.',
       buttonText: 'Start Dancing Today'
     },
     {
-      image: '/src/assets/ss2.png',
+      image: '/assets/ss2.png',
       title: 'Master Your Moves',
       description: 'Learn from professional instructors and take your dance skills to the next level.',
       buttonText: 'Join Our Classes'
     },
     {
-      image: '/src/assets/ss3.png',
+      image: '/assets/ss3.png',
       title: 'Express Through Dance',
       description: 'Find your unique style and build confidence through the art of dance.',
       buttonText: 'Explore Programs'

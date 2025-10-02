@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // Import images
-import cv1 from '/src/assets/cv1.png';
-import cv2 from '/src/assets/cv2.png';
-import cv3 from '/src/assets/cv3.png';
-import pdm1 from '/src/assets/pdm_1.png';
-import pdm2 from '/src/assets/pdm_2.png';
-import pdm3 from '/src/assets/pdm_3.png';
-import tpr2 from '/src/assets/tpr_2.png';
-import tpr3 from '/src/assets/tpr_3.png';
+import cv1 from '/assets/cv1.png';
+import cv2 from '/assets/cv2.png';
+import cv3 from '/assets/cv3.png';
+import pdm1 from '/assets/pdm_1.png';
+import pdm2 from '/assets/pdm_2.png';
+import pdm3 from '/assets/pdm_3.png';
+import tpr2 from '/assets/tpr_2.png';
+import tpr3 from '/assets/tpr_3.png';
 
 interface BranchSection {
   title: string;

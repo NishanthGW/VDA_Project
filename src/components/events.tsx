@@ -56,8 +56,8 @@ const eventsData: Event[] = [
     title: "Puberty Functions",
     description: "Traditional celebrations for coming-of-age ceremonies",
     images: [
-      "src/assets/sangeet.jpg",
-      "src/assets/pube.jpg",
+      "assets/sangeet.jpg",
+      "assets/pube.jpg",
       "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRyYWRpdGlvbmFsJTIwY2VyZW1vbnl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60"
     ]
   },
@@ -184,7 +184,7 @@ const Events: React.FC = () => {
     : eventsData;
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white pt-24 mt-2">
+    <div className="min-h-screen bg-gray-900 text-white pt-24 mt-2 pb-20">
       <TopBar />
       <div className="relative h-96 overflow-hidden m-6 py-6 px-4">
         <div 

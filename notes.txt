@@ -2,4 +2,4 @@ npm run dev
 
 https://github.com/NishanthGW/VDA_Project.git
 
-git add .; git commit -m "3rd Commit"; git push origin main
+git add .; git commit -m "4rth Commit/Fix deployment configuration"; git push origin main

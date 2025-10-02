@@ -121,7 +121,7 @@ const Founder: React.FC = () => {
           >
             <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 to-purple-600/10 z-10"></div>
             <img
-              src="/src/assets/founder.png"
+              src="/assets/founder.png"
               alt="Founder"
               className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
             />

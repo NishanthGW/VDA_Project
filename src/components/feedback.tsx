@@ -65,7 +65,7 @@
                     <div className="flex justify-center mb-2 mr-3">
                       <div className="bg-yellow-400 rounded-full">
                         <img 
-                          src={`/src/assets/${data.image}`} 
+                          src={`/assets/${data.image}`} 
                           alt={data.name}
                           className="w-12 h-12 rounded-full object-cover"
                         />

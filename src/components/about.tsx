@@ -94,7 +94,7 @@ const About = () => {
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-8 md:mb-0">
               <img 
-                src="src/assets/d_img.jpg" 
+                src="assets/d_img.jpg" 
                 alt="Dance vision" 
                 className="rounded-lg shadow-lg"
               />

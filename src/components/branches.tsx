@@ -3,15 +3,15 @@ import { useSearchParams, useNavigate } from 'react-router-dom';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 
 // Import images
-import cbe1 from '/src/assets/cbeBat_1.jpg';
-import cbe2 from '/src/assets/cbeBat_2.jpg';
-import cbe3 from '/src/assets/cbeBat_3.jpg';
-import pdm1 from '/src/assets/pdmBat_1.jpg';
-import pdm2 from '/src/assets/pdmBat_2.jpg';
-import pdm3 from '/src/assets/pdmBat_3.jpg';
-import tpr1 from '/src/assets/tprBat_1.jpg';
-import tpr2 from '/src/assets/tprBat_2.jpg';
-import tpr3 from '/src/assets/tprBat_3.jpg';
+import cbe1 from '/assets/cbeBat_1.jpg';
+import cbe2 from '/assets/cbeBat_2.jpg';
+import cbe3 from '/assets/cbeBat_3.jpg';
+import pdm1 from '/assets/pdmBat_1.jpg';
+import pdm2 from '/assets/pdmBat_2.jpg';
+import pdm3 from '/assets/pdmBat_3.jpg';
+import tpr1 from '/assets/tprBat_1.jpg';
+import tpr2 from '/assets/tprBat_2.jpg';
+import tpr3 from '/assets/tprBat_3.jpg';
 
 interface BranchData {
   title: string;

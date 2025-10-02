@@ -24,7 +24,7 @@ const Services = () => {
   };
 
   return (
-    <div className="relative bg-[url('/src/assets/bg1.png')] bg-cover bg-center text-white z-0">
+    <div className="relative bg-[url('/assets/bg1.png')] bg-cover bg-center text-white z-0">
       <div className=' bg-black/85 text-white py-10 px-4 z-10'>
         <h2 className="z-100 text-5xl font-bold text-center text-white mb-16">Our <span className="text-yellow-400">Services</span></h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">

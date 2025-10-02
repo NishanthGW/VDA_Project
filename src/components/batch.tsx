@@ -17,7 +17,7 @@ const Batch = () => {
             {/* Coimbatore Branch */}
             <div className="group relative h-60 w-full md:w-1/3 bg-gray-800 rounded-lg shadow-lg overflow-hidden cursor-pointer">
               <div 
-                className="absolute inset-0 bg-[url('/src/assets/covai.png')] bg-cover bg-center 
+                className="absolute inset-0 bg-[url('/assets/covai.png')] bg-cover bg-center 
                           transition-all duration-500 ease-in-out transform group-hover:scale-110"
               />
               <div 
@@ -42,7 +42,7 @@ const Batch = () => {
             {/* Palladam Branch */}
             <div className="group relative h-60 w-full md:w-1/3 bg-gray-800 rounded-lg shadow-lg overflow-hidden cursor-pointer">
               <div 
-                className="absolute inset-0 bg-[url('/src/assets/palladam.png')] bg-cover bg-center 
+                className="absolute inset-0 bg-[url('/assets/palladam.png')] bg-cover bg-center 
                           transition-all duration-500 ease-in-out transform group-hover:scale-110"
               />
               <div 
@@ -67,7 +67,7 @@ const Batch = () => {
             {/* Tiruppur Branch */}
             <div className="group relative h-60 w-full md:w-1/3 bg-gray-800 rounded-lg shadow-lg overflow-hidden cursor-pointer">
               <div 
-                className="absolute inset-0 bg-[url('/src/assets/tiruppur.png')] bg-cover bg-center 
+                className="absolute inset-0 bg-[url('/assets/tiruppur.png')] bg-cover bg-center 
                           transition-all duration-500 ease-in-out transform group-hover:scale-110"
               />
               <div 
