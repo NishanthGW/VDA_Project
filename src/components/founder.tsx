@@ -108,7 +108,7 @@ const Founder: React.FC = () => {
       >
         <motion.h2
           variants={childVariants}
-          className="text-5xl md:text-6xl font-bold text-center text-white mb-16"
+          className="text-4xl md:text-5xl font-bold text-center text-white mb-16"
         >
           Meet Our <span className="text-yellow-400">Visionary</span>
         </motion.h2>
@@ -164,9 +164,9 @@ const Founder: React.FC = () => {
                 className="text-gray-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed text-lg"
               >
                 Darwin is a passionate choreographer and dance educator with over 8 years of experience 
-                in the dance industry. Her vision to create a vibrant community for dancers of all levels 
-                led to the founding of our studio. Jane's innovative choreography and dedication to 
-                fostering creativity have earned her numerous accolades and a loyal following.
+                in the dance industry. His vision to create a vibrant community for dancers of all levels 
+                led to the founding of our studio. Darwin's innovative choreography and dedication to 
+                fostering creativity have earned him numerous accolades and a loyal following.
               </motion.p>
             </div>
             

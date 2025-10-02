@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import emailjs from 'emailjs-com';
-import { FaEnvelope, FaMapMarkerAlt, FaCalendarAlt, FaUser, FaChild, FaPaperPlane } from 'react-icons/fa';
+import { FaEnvelope, FaMapMarkerAlt, FaCalendarAlt, FaUser, FaChild, FaPaperPlane, FaClock } from 'react-icons/fa';
 
 // EmailJS configuration
 const EMAILJS_CONFIG = {
@@ -24,11 +24,12 @@ const TrialClass = () => {
     phone: '',
     message: '',
     
-    // Trial class fields
+    // Join class fields (replacing trial class fields)
     childName: '',
     childAge: '',
     experience: 'beginner',
-    preferredDate: '',
+    preferredClass: '',
+    preferredTiming: '',
     location: '',
     
     // Rental fields
@@ -63,6 +64,14 @@ const TrialClass = () => {
       from_email: formData.email || 'Not provided',
       phone: formData.phone,
       
+      // Join class specific data
+      child_name: formData.childName || 'Not provided',
+      child_age: formData.childAge || 'Not provided',
+      experience: formData.experience || 'Not specified',
+      preferred_class: formData.preferredClass || 'Not specified',
+      preferred_timing: formData.preferredTiming || 'Not specified',
+      location: formData.location || 'Not specified',
+      
       // Rental specific data
       event_type: formData.eventType,
       rental_date: formData.rentalDate || 'Not specified',
@@ -75,7 +84,7 @@ const TrialClass = () => {
       date: new Date().toLocaleString(),
       
       // Additional fields
-      subject: 'New Space Rental Inquiry',
+      subject: formType === 'rental' ? 'New Space Rental Inquiry' : 'New Class Registration',
       reply_to: formData.email || 'Not provided'
     };
 
@@ -102,19 +111,24 @@ const TrialClass = () => {
     console.log('🚀 Form submitted with data:', formData);
     console.log('📋 Form type:', formType);
     
-    // Validate required fields
-    let requiredFields = ['phone', 'name', 'email']; // Common required fields
+    // Validate required fields - Only Student's Name and Phone for join class
+    let requiredFields = ['phone']; // Only phone is mandatory from common fields
     
     if (formType === 'rental') {
       requiredFields = [...requiredFields, 'eventType', 'rentalDate', 'startTime', 'endTime', 'guests'];
     } else {
-      requiredFields = [...requiredFields, 'childName', 'childAge'];
+      requiredFields = [...requiredFields, 'childName']; // Only childName is mandatory for join class
     }
     
     const missingFields = requiredFields.filter(field => !formData[field as keyof typeof formData]);
     
     if (missingFields.length > 0) {
-      alert(`Please fill in all required fields: ${missingFields.join(', ')}`);
+      const fieldNames = missingFields.map(field => {
+        if (field === 'childName') return "Student's Name";
+        if (field === 'phone') return "Phone Number";
+        return field;
+      });
+      alert(`Please fill in all mandatory fields: ${fieldNames.join(', ')}`);
       return;
     }
     
@@ -139,7 +153,8 @@ const TrialClass = () => {
             childName: '',
             childAge: '',
             experience: 'beginner',
-            preferredDate: '',
+            preferredClass: '',
+            preferredTiming: '',
             location: '',
             eventType: '',
             rentalDate: '',
@@ -173,10 +188,10 @@ const TrialClass = () => {
       };
     } else {
       return {
-        title: "Register for a Free Trial Class",
-        subtitle: "Experience the Vibe Dance Academy difference.",
-        buttonText: "Register for Free Trial",
-        successMessage: "Registration sent successfully! We'll contact you to confirm your trial class."
+        title: "Join Our Dance Class",
+        subtitle: "Start your dance journey with Vibe Dance Academy.",
+        buttonText: "Join Class",
+        successMessage: "Registration sent successfully! We'll contact you to confirm your class details."
       };
     }
   };
@@ -209,13 +224,13 @@ const TrialClass = () => {
         },
         {
           icon: FaChild,
-          title: "Age-Appropriate Classes",
-          description: "Programs designed for different age groups"
+          title: "All Skill Levels",
+          description: "Classes for beginners to advanced dancers"
         },
         {
-          icon: FaPaperPlane,
-          title: "Flexible Scheduling",
-          description: "Choose timings that work for you"
+          icon: FaClock,
+          title: "Flexible Timings",
+          description: "Multiple class schedules available"
         }
       ];
     }
@@ -235,6 +250,11 @@ const TrialClass = () => {
           <p className="text-gray-300 text-lg">
             {subtitle}
           </p>
+          {formType !== 'rental' && (
+            <p className="text-gray-400 text-sm mt-2">
+              * Only Student's Name and Phone Number are mandatory fields
+            </p>
+          )}
         </div>
 
         {/* Form Section */}
@@ -247,7 +267,7 @@ const TrialClass = () => {
                 : 'bg-gradient-to-b from-yellow-500 to-yellow-600 text-black'
             }`}>
               <h2 className="text-2xl font-bold mb-6">
-                {formType === 'rental' ? 'Space Features' : 'Why Choose Vibe?'}
+                {formType === 'rental' ? 'Space Features' : 'Why Join Vibe?'}
               </h2>
               
               <div className="space-y-6">
@@ -286,13 +306,13 @@ const TrialClass = () => {
             {/* Right Side - Form */}
             <div className="md:w-3/5 p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Student Information FIRST (for trial class) */}
+                {/* Student Information FIRST (for join class) */}
                 {formType === 'trial' && (
                   <>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
                         <label htmlFor="childName" className="block text-sm font-medium text-gray-300 mb-1">
-                          Student's Name *
+                          Student's Name <span className="text-red-400">*</span>
                         </label>
                         <input
                           type="text"
@@ -302,13 +322,13 @@ const TrialClass = () => {
                           onChange={handleChange}
                           required
                           className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                          placeholder="Enter child's name"
+                          placeholder="Enter student's name"
                         />
                       </div>
                       
                       <div>
                         <label htmlFor="childAge" className="block text-sm font-medium text-gray-300 mb-1">
-                          Student's Age *
+                          Student's Age
                         </label>
                         <input
                           type="number"
@@ -318,7 +338,6 @@ const TrialClass = () => {
                           onChange={handleChange}
                           min="3"
                           max="18"
-                          required
                           className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                           placeholder="Age from 3 years"
                         />
@@ -344,42 +363,66 @@ const TrialClass = () => {
                       </div>
 
                       <div>
-                        <label htmlFor="preferredDate" className="block text-sm font-medium text-gray-300 mb-1">
-                          Preferred Date
+                        <label htmlFor="preferredClass" className="block text-sm font-medium text-gray-300 mb-1">
+                          Preferred Class
                         </label>
-                        <div className="relative">
-                          <input
-                            type="date"
-                            id="preferredDate"
-                            name="preferredDate"
-                            value={formData.preferredDate}
-                            onChange={handleChange}
-                            min={new Date().toISOString().split('T')[0]}
-                            className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                          />
-                          <FaCalendarAlt className="absolute right-3 top-3.5 text-gray-400" />
-                        </div>
+                        <select
+                          id="preferredClass"
+                          name="preferredClass"
+                          value={formData.preferredClass}
+                          onChange={handleChange}
+                          className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                        >
+                          <option value="">Select a class</option>
+                          <option value="hiphop">Hip Hop</option>
+                          <option value="contemporary">Contemporary</option>
+                          <option value="ballet">Ballet</option>
+                          <option value="jazz">Jazz</option>
+                          <option value="bollywood">Bollywood</option>
+                          <option value="breakdance">Breakdance</option>
+                        </select>
                       </div>
                     </div>
 
-                    <div>
-                      <label htmlFor="location" className="block text-sm font-medium text-gray-300 mb-1">
-                        Preferred Location
-                      </label>
-                      <div className="relative">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <label htmlFor="preferredTiming" className="block text-sm font-medium text-gray-300 mb-1">
+                          Preferred Timing
+                        </label>
                         <select
-                          id="location"
-                          name="location"
-                          value={formData.location}
+                          id="preferredTiming"
+                          name="preferredTiming"
+                          value={formData.preferredTiming}
                           onChange={handleChange}
-                          className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent appearance-none"
+                          className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                         >
-                          <option value="">Select a location</option>
-                          <option value="coimbatore">Coimbatore Studio</option>
-                          <option value="palladam">Palladam Studio</option>
-                          <option value="tirupur">Tirupur Studio</option>
+                          <option value="">Select timing</option>
+                          <option value="morning">Morning (9 AM - 12 PM)</option>
+                          <option value="afternoon">Afternoon (3 PM - 6 PM)</option>
+                          <option value="evening">Evening (6 PM - 9 PM)</option>
+                          <option value="weekend">Weekend</option>
                         </select>
-                        <FaMapMarkerAlt className="absolute right-3 top-3.5 text-gray-400 pointer-events-none" />
+                      </div>
+
+                      <div>
+                        <label htmlFor="location" className="block text-sm font-medium text-gray-300 mb-1">
+                          Preferred Location
+                        </label>
+                        <div className="relative">
+                          <select
+                            id="location"
+                            name="location"
+                            value={formData.location}
+                            onChange={handleChange}
+                            className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent appearance-none"
+                          >
+                            <option value="">Select a location</option>
+                            <option value="coimbatore">Coimbatore Studio</option>
+                            <option value="palladam">Palladam Studio</option>
+                            <option value="tirupur">Tirupur Studio</option>
+                          </select>
+                          <FaMapMarkerAlt className="absolute right-3 top-3.5 text-gray-400 pointer-events-none" />
+                        </div>
                       </div>
                     </div>
                   </>
@@ -389,7 +432,7 @@ const TrialClass = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
-                      {formType === 'rental' ? 'Your Name *' : 'Parent/Guardian Name *'}
+                      {formType === 'rental' ? 'Your Name *' : 'Parent/Guardian Name'}
                     </label>
                     <input
                       type="text"
@@ -397,7 +440,6 @@ const TrialClass = () => {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      required
                       className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                       placeholder={formType === 'rental' ? 'Enter your full name' : 'Enter parent/guardian name'}
                     />
@@ -405,7 +447,7 @@ const TrialClass = () => {
                   
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
-                      Email Address *
+                      Email Address
                     </label>
                     <input
                       type="email"
@@ -413,7 +455,6 @@ const TrialClass = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      required
                       className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                       placeholder="your@email.com"
                     />
@@ -423,7 +464,7 @@ const TrialClass = () => {
                 {/* Phone Number (Mandatory) */}
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-1">
-                    Phone Number *
+                    Phone Number <span className="text-red-400">*</span>
                   </label>
                   <input
                     type="tel"
@@ -436,123 +477,6 @@ const TrialClass = () => {
                     placeholder="+91 12345 67890"
                   />
                 </div>
-
-                {/* Rental Information */}
-                {formType === 'rental' && (
-                  <>
-                    <div>
-                      <label htmlFor="eventType" className="block text-sm font-medium text-gray-300 mb-1">
-                        Event Type *
-                      </label>
-                      <select
-                        id="eventType"
-                        name="eventType"
-                        value={formData.eventType}
-                        onChange={handleChange}
-                        required
-                        className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                      >
-                        <option value="">Select event type</option>
-                        <option value="photoshoot">Photoshoot</option>
-                        <option value="video-shoot">Video Shoot</option>
-                        <option value="workshop">Workshop</option>
-                        <option value="meeting">Meeting</option>
-                        <option value="party">Party</option>
-                        <option value="other">Other</option>
-                      </select>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <label htmlFor="rentalDate" className="block text-sm font-medium text-gray-300 mb-1">
-                          Preferred Date *
-                        </label>
-                        <div className="relative">
-                          <input
-                            type="date"
-                            id="rentalDate"
-                            name="rentalDate"
-                            value={formData.rentalDate}
-                            onChange={handleChange}
-                            required
-                            min={new Date().toISOString().split('T')[0]}
-                            className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                          />
-                          <FaCalendarAlt className="absolute right-3 top-3.5 text-gray-400" />
-                        </div>
-                      </div>
-                      
-                      <div>
-                        <label htmlFor="guests" className="block text-sm font-medium text-gray-300 mb-1">
-                          Number of Guests *
-                        </label>
-                        <input
-                          type="number"
-                          id="guests"
-                          name="guests"
-                          value={formData.guests}
-                          onChange={handleChange}
-                          min="1"
-                          max="50"
-                          required
-                          className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                          placeholder="1-50 guests"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <label htmlFor="startTime" className="block text-sm font-medium text-gray-300 mb-1">
-                          Start Time *
-                        </label>
-                        <div className="relative">
-                          <input
-                            type="time"
-                            id="startTime"
-                            name="startTime"
-                            value={formData.startTime}
-                            onChange={handleChange}
-                            required
-                            className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                          />
-                        </div>
-                      </div>
-                      
-                      <div>
-                        <label htmlFor="endTime" className="block text-sm font-medium text-gray-300 mb-1">
-                          End Time *
-                        </label>
-                        <div className="relative">
-                          <input
-                            type="time"
-                            id="endTime"
-                            name="endTime"
-                            value={formData.endTime}
-                            onChange={handleChange}
-                            required
-                            className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                          />
-                        </div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label htmlFor="rentalPurpose" className="block text-sm font-medium text-gray-300 mb-1">
-                        Purpose of Rental
-                      </label>
-                      <textarea
-                        id="rentalPurpose"
-                        name="rentalPurpose"
-                        value={formData.rentalPurpose}
-                        onChange={handleChange}
-                        rows={2}
-                        className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                        placeholder="Describe the purpose of your rental..."
-                      />
-                    </div>
-                  </>
-                )}
                 
                 {/* Additional Notes (for both forms) */}
                 <div>
@@ -575,11 +499,11 @@ const TrialClass = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-4 rounded-lg transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? (
                       <>
-                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-black mr-2"></div>
                         Sending...
                       </>
                     ) : (

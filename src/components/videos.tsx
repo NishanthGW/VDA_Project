@@ -24,7 +24,7 @@ const Videos = () => {
       //   <div className=' bg-black/85 text-white py-10 px-4 z-10'>
     <div className="relative bg-[url('/src/assets/bg_celeb.png')] bg-contain bg-center">
       <div className=" bg-black/85 container mx-auto px-4 pb-28 pt-20">
-        <h1 className="text-white text-4xl font-bold ml-24 mb-16 text-center">Featured Videos</h1>
+        <h1 className="text-white text-5xl font-bold ml-24 mb-16 text-center">Featured <span className="text-yellow-400">Videos</span></h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {displayedVideos.map((videoId, index) => (
             <div 

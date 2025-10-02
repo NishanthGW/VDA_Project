@@ -9,10 +9,10 @@ const Batch = () => {
   };
 
   return (
-    <div className="relative bg-gradient-to-br from-black via-gray-800 to-black py-20 overflow-hidden w-full h-[60vh]">
-      <div className="absolute inset-0 bg-black/40 flex justify-center items-center z-10 ">
+    <div className="relative bg-gradient-to-br from-black via-gray-800 to-black overflow-hidden w-full h-[60vh]">
+      <div className="absolute inset-0 bg-black/40 flex justify-center items-center z-10">
         <div className="text-center w-full px-4">
-          <h2 className="text-4xl font-bold mb-6 text-white">Choose Your Batch</h2>
+          <h2 className="text-5xl font-bold mb-16 text-white">Choose Your <span className="text-yellow-400">Batch</span></h2>
           <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-6 w-full max-w-6xl mx-auto">
             {/* Coimbatore Branch */}
             <div className="group relative h-60 w-full md:w-1/3 bg-gray-800 rounded-lg shadow-lg overflow-hidden cursor-pointer">

@@ -72,7 +72,7 @@ const Space = () => {
 
   return (
     <div className="bg-[url('/src/assets/bg5.png')] bg-cover bg-center bg-black text-white py-16 px-4">
-      <h2 className="text-4xl font-bold text-center mb-16">Our Vibe, Your Vibe</h2>
+      <h2 className="text-5xl font-bold text-center mb-16">Our <span className="text-yellow-400">Vibe</span>, Your <span className="text-yellow-400">Vibe</span></h2>
       <div className="max-w-6xl mx-auto">
         {/* Slideshow Container - Increased height */}
         <div className="w-full h-96 md:h-[500px] rounded-lg mb-8 overflow-hidden relative">
