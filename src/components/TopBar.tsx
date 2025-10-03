@@ -1,6 +1,8 @@
 import { FaPhoneAlt, FaFacebookF, FaInstagram, FaYoutube, FaBars, FaTimes, FaChevronDown } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import logo from '/assets/logo.png';
+
 
 const TopBar = () => {
   const navigate = useNavigate();
@@ -98,7 +100,7 @@ const TopBar = () => {
           <div className="flex items-center">
             <div className="relative group">
               <Link to="/">
-                <img src="/logo.png" alt="Vibe Dance Academy logo" className="h-10 md:h-12 transition-all duration-500 group-hover:scale-105" />
+                <img src={logo} alt="Vibe Dance Academy logo" className="h-10 md:h-12 transition-all duration-500 group-hover:scale-105" />
               </Link>
             </div>
           </div>

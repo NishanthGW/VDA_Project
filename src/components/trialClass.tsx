@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import emailjs from 'emailjs-com';
-import { FaEnvelope, FaMapMarkerAlt, FaUser, FaChild, FaPaperPlane, FaClock } from 'react-icons/fa';
+import { FaEnvelope, FaMapMarkerAlt, FaUser, FaChild, FaPaperPlane, FaClock, FaCalendar, FaUsers } from 'react-icons/fa';
 
 // EmailJS configuration
 const EMAILJS_CONFIG = {
@@ -37,7 +37,7 @@ const TrialClass = () => {
     preferredTiming: '',
     location: '',
     
-    // Rental fields
+    // Rental fields - updated to match EmailJS template
     eventType: '',
     rentalDate: '',
     startTime: '',
@@ -77,8 +77,8 @@ const TrialClass = () => {
       preferred_timing: formData.preferredTiming || 'Not specified',
       location: formData.location || 'Not specified',
       
-      // Rental specific data
-      event_type: formData.eventType,
+      // Rental specific data - updated to match template
+      event_type: formData.eventType || 'Not specified',
       rental_date: formData.rentalDate || 'Not specified',
       start_time: formData.startTime || 'Not specified',
       end_time: formData.endTime || 'Not specified',
@@ -116,11 +116,11 @@ const TrialClass = () => {
     console.log('🚀 Form submitted with data:', formData);
     console.log('📋 Form type:', formType);
     
-    // Validate required fields - Only Student's Name and Phone for join class
-    let requiredFields = ['phone']; // Only phone is mandatory from common fields
+    // Validate required fields - Only Event Type, Preferred Date, and Phone for rental
+    let requiredFields = ['phone']; // Phone is mandatory for both forms
     
     if (formType === 'rental') {
-      requiredFields = [...requiredFields, 'eventType', 'rentalDate', 'startTime', 'endTime', 'guests'];
+      requiredFields = [...requiredFields, 'eventType', 'rentalDate'];
     } else {
       requiredFields = [...requiredFields, 'childName']; // Only childName is mandatory for join class
     }
@@ -131,6 +131,8 @@ const TrialClass = () => {
       const fieldNames = missingFields.map(field => {
         if (field === 'childName') return "Student's Name";
         if (field === 'phone') return "Phone Number";
+        if (field === 'eventType') return "Event Type";
+        if (field === 'rentalDate') return "Preferred Date";
         return field;
       });
       alert(`Please fill in all mandatory fields: ${fieldNames.join(', ')}`);
@@ -249,12 +251,17 @@ const TrialClass = () => {
       <div className="max-w-4xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-500">
+          <h1 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-purple-500">
             {title}
           </h1>
           <p className="text-gray-300 text-lg">
             {subtitle}
           </p>
+          {formType === 'rental' && (
+            <p className="text-gray-400 text-sm mt-2">
+              * Only Event Type, Preferred Date, and Phone Number are mandatory fields
+            </p>
+          )}
           {formType !== 'rental' && (
             <p className="text-gray-400 text-sm mt-2">
               * Only Student's Name and Phone Number are mandatory fields
@@ -311,6 +318,123 @@ const TrialClass = () => {
             {/* Right Side - Form */}
             <div className="md:w-3/5 p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Rental Form Fields */}
+                {formType === 'rental' && (
+                  <>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <label htmlFor="eventType" className="block text-sm font-medium text-gray-300 mb-1">
+                          Event Type <span className="text-red-400">*</span>
+                        </label>
+                        <div className="relative">
+                          <select
+                            id="eventType"
+                            name="eventType"
+                            value={formData.eventType}
+                            onChange={handleChange}
+                            required
+                            className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent appearance-none"
+                          >
+                            <option value="">Select event type</option>
+                            <option value="photoshoot">Photoshoot</option>
+                            <option value="workshop">Workshop</option>
+                            <option value="rehearsal">Rehearsal</option>
+                            <option value="film-shoot">Film Shoot</option>
+                            <option value="corporate-event">Corporate Event</option>
+                            <option value="birthday-party">Birthday Party</option>
+                            <option value="other">Other</option>
+                          </select>
+                          <FaUser className="absolute right-3 top-3.5 text-gray-400 pointer-events-none" />
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <label htmlFor="guests" className="block text-sm font-medium text-gray-300 mb-1">
+                          Number of Guests
+                        </label>
+                        <div className="relative">
+                          <input
+                            type="number"
+                            id="guests"
+                            name="guests"
+                            value={formData.guests}
+                            onChange={handleChange}
+                            min="1"
+                            max="100"
+                            className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                            placeholder="Number of guests"
+                          />
+                          <FaUsers className="absolute right-3 top-3.5 text-gray-400 pointer-events-none" />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <label htmlFor="rentalDate" className="block text-sm font-medium text-gray-300 mb-1">
+                        Preferred Date <span className="text-red-400">*</span>
+                      </label>
+                      <div className="relative">
+                        <input
+                          type="date"
+                          id="rentalDate"
+                          name="rentalDate"
+                          value={formData.rentalDate}
+                          onChange={handleChange}
+                          required
+                          min={new Date().toISOString().split('T')[0]}
+                          className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                        />
+                        <FaCalendar className="absolute right-3 top-3.5 text-gray-400 pointer-events-none" />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <label htmlFor="startTime" className="block text-sm font-medium text-gray-300 mb-1">
+                          Start Time
+                        </label>
+                        <input
+                          type="time"
+                          id="startTime"
+                          name="startTime"
+                          value={formData.startTime}
+                          onChange={handleChange}
+                          className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                        />
+                      </div>
+                      
+                      <div>
+                        <label htmlFor="endTime" className="block text-sm font-medium text-gray-300 mb-1">
+                          End Time
+                        </label>
+                        <input
+                          type="time"
+                          id="endTime"
+                          name="endTime"
+                          value={formData.endTime}
+                          onChange={handleChange}
+                          className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label htmlFor="rentalPurpose" className="block text-sm font-medium text-gray-300 mb-1">
+                        Purpose of Rental
+                      </label>
+                      <textarea
+                        id="rentalPurpose"
+                        name="rentalPurpose"
+                        value={formData.rentalPurpose}
+                        onChange={handleChange}
+                        rows={2}
+                        className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                        placeholder="Brief description of your event purpose..."
+                      />
+                    </div>
+                  </>
+                )}
+
                 {/* Student Information FIRST (for join class) */}
                 {formType === 'trial' && (
                   <>
@@ -433,11 +557,11 @@ const TrialClass = () => {
                   </>
                 )}
 
-                {/* Parent/Guardian Information */}
+                {/* Contact Information (for both forms) */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
-                      {formType === 'rental' ? 'Your Name *' : 'Parent/Guardian Name'}
+                      {formType === 'rental' ? 'Your Name' : 'Parent/Guardian Name'}
                     </label>
                     <input
                       type="text"
@@ -445,7 +569,7 @@ const TrialClass = () => {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                      className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                       placeholder={formType === 'rental' ? 'Enter your full name' : 'Enter parent/guardian name'}
                     />
                   </div>
@@ -460,7 +584,7 @@ const TrialClass = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                      className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                       placeholder="your@email.com"
                     />
                   </div>
@@ -478,7 +602,7 @@ const TrialClass = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     required
-                    className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                    className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                     placeholder="+91 12345 67890"
                   />
                 </div>
@@ -494,7 +618,7 @@ const TrialClass = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows={3}
-                    className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                    className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                     placeholder="Any special requirements or notes..."
                   />
                 </div>
@@ -504,11 +628,17 @@ const TrialClass = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-4 rounded-lg transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+                    className={`w-full font-bold py-3 px-4 rounded-lg transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-opacity-50 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed ${
+                      formType === 'rental' 
+                        ? 'bg-purple-500 hover:bg-purple-600 text-white focus:ring-purple-500' 
+                        : 'bg-yellow-500 hover:bg-yellow-600 text-black focus:ring-yellow-500'
+                    }`}
                   >
                     {isSubmitting ? (
                       <>
-                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-black mr-2"></div>
+                        <div className={`animate-spin rounded-full h-5 w-5 border-b-2 ${
+                          formType === 'rental' ? 'border-white' : 'border-black'
+                        } mr-2`}></div>
                         Sending...
                       </>
                     ) : (
@@ -519,8 +649,8 @@ const TrialClass = () => {
                     )}
                   </button>
                 </div>
-                
-                {/* Success/Error Messages */}
+
+                {/* Success/Error Messages - Moved beneath the submit button */}
                 {submitStatus === 'success' && (
                   <div className="bg-green-900 border border-green-600 rounded-lg p-4 mt-4">
                     <div className="flex items-center">
