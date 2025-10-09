@@ -76,8 +76,8 @@ const Counters = () => {
   const counterData: CounterItem[] = [
     { target: 300, suffix: "K+", label: "YouTube Subscribers" },
     { target: 150, suffix: "K+", label: "Instagram Followers" },
-    { target: 50, suffix: "K+", label: "Facebook Followers" },
-    { target: 1000, suffix: "+", label: "Students Trained" }
+    { target: 70, suffix: "K+", label: "Facebook Followers" },
+    { target: 10000, suffix: "+", label: "Students Trained" }
   ];
 
   return (

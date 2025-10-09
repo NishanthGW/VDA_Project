@@ -51,7 +51,7 @@ const TopBar = () => {
             <div className="p-2 bg-gray-500 rounded-full group-hover:scale-110 group-hover:bg-yellow-400 transition-all duration-300">
               <FaPhoneAlt className="text-sm text-black" />
             </div>
-            <span className="text-gray-300 text-base font-medium group-hover:text-yellow-400 transition-all duration-300 transform group-hover:scale-105">+1 234 567 8900</span>
+            <span className="text-gray-300 text-base font-medium group-hover:text-yellow-400 transition-all duration-300 transform group-hover:scale-105">9566619974</span>
           </div>
           <div className="flex items-center space-x-3 group cursor-pointer">
             <div className="p-2 bg-gray-500 rounded-full group-hover:scale-110 group-hover:bg-yellow-400 transition-all duration-300">
@@ -59,19 +59,19 @@ const TopBar = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
             </div>
-            <span className="text-gray-300 text-base font-medium group-hover:text-yellow-400 transition-all duration-300 transform group-hover:scale-105">info@dancestudio.com</span>
+            <span className="text-gray-300 text-base font-medium group-hover:text-yellow-400 transition-all duration-300 transform group-hover:scale-105">vdacoimbatore@gmail.com</span>
           </div>
         </div>
 
         <div className="flex items-center space-x-4 z-10">
           <div className="flex items-center space-x-3">
-            <a href="#" className="text-gray-300 hover:text-blue-400 transition-all duration-300 transform hover:-translate-y-1 p-2 bg-gray-800 rounded-full">
+            <a href="https://www.facebook.com/share/1H8MCdEwPe/?mibextid=wwXIfr" className="text-gray-300 hover:text-blue-400 transition-all duration-300 transform hover:-translate-y-1 p-2 bg-gray-800 rounded-full">
               <FaFacebookF size={16} />
             </a>
-            <a href="#" className="text-gray-300 hover:text-pink-500 transition-all duration-300 transform hover:-translate-y-1 p-2 bg-gray-800 rounded-full">
+            <a href="https://www.instagram.com/vibe_dance_academy__?igsh=MTI4NXZqdm9sdmV5cQ==" className="text-gray-300 hover:text-pink-500 transition-all duration-300 transform hover:-translate-y-1 p-2 bg-gray-800 rounded-full">
               <FaInstagram size={16} />
             </a>
-            <a href="#" className="text-gray-300 hover:text-red-500 transition-all duration-300 transform hover:-translate-y-1 p-2 bg-gray-800 rounded-full">
+            <a href="https://youtube.com/@vibe_dance_academy?si=fVWvQHTok5bAKM7P" className="text-gray-300 hover:text-red-500 transition-all duration-300 transform hover:-translate-y-1 p-2 bg-gray-800 rounded-full">
               <FaYoutube size={16} />
             </a>
           </div>

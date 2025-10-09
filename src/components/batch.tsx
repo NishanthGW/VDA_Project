@@ -25,7 +25,7 @@ const Batch = () => {
                 onClick={() => handleBranchSelect('coimbatore')}
               >
                 <p className='text-white text-xl font-bold'>Coimbatore</p>
-                <p className='text-white text-sm'>123 Dance Street, Coimbatore</p>
+                <p className='text-white text-sm'>Above CSB Bank, Sathy road, Ganapathy - 641006</p>
                 <p className='text-white text-sm'>Hours: 6 AM - 9 PM</p>
                 <button 
                   className="mt-2 bg-black/40 hover:bg-gray-700 backdrop-blur-sm text-white py-2 px-4 rounded border-[1px] border-white transition-colors duration-300"
@@ -50,7 +50,7 @@ const Batch = () => {
                 onClick={() => handleBranchSelect('palladam')}
               >
                 <p className='text-white text-xl font-bold'>Palladam</p>
-                <p className='text-white text-sm'>123 Dance Street, Palladam</p>
+                <p className='text-white text-sm'>Near SV Clinic, Kosavampalayam road, Palladam - 641664</p>
                 <p className='text-white text-sm'>Hours: 6 AM - 9 PM</p>
                 <button 
                   className="mt-2 bg-black/40 hover:bg-gray-700 backdrop-blur-sm text-white py-2 px-4 rounded border-[1px] border-white transition-colors duration-300"
@@ -75,7 +75,7 @@ const Batch = () => {
                 onClick={() => handleBranchSelect('tirupur')}
               >
                 <p className='text-white text-xl font-bold'>Tiruppur</p>
-                <p className='text-white text-sm'>123 Dance Street, Tiruppur</p>
+                <p className='text-white text-sm'>15, Velampalayam, Avinashi road, Tirupur - 641652</p>
                 <p className='text-white text-sm'>Hours: 6 AM - 9 PM</p>
                 <button 
                   className="mt-2 bg-black/40 hover:bg-gray-700 backdrop-blur-sm text-white py-2 px-4 rounded border-[1px] border-white transition-colors duration-300"

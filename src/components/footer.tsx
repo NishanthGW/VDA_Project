@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from '/assets/logo.png';
 
 const Footer = () => {
   return (
@@ -22,13 +23,14 @@ const Footer = () => {
         </div>
         <div className="mb-4 md:mb-0">
           <h4 className="text-white text-lg mb-2">Contact Us</h4>
-          <p>Phone: +1 234 567 8900</p>
-          <p>Email: info@dancestudio.com</p>
-          <p>Address: 123 Dance Street, City</p>
+          <p>Phone: +91 9566619974</p>
+          <p>Email: vdacoimbatore@gmail.com</p>
+          <p>Address: Above CSB Bank, Sathy road, Ganapathy - 641006
+          </p>
         </div>
         <div className="mb-4 md:mb-0">
           {/* <h3 className="text-white text-xl font-bold mb-2">VIBE DANCE ACADEMY</h3> */}
-          <div className='flex justify-center items-center py-4'><img src="/logo.png" alt="Vibe Dance Academy logo" className="w-60 h-26" /></div>          
+          <div className='flex justify-center items-center py-4'><img src={logo} alt="Vibe Dance Academy logo" className="w-60 h-26" /></div>          
           {/* <div className="flex space-x-2">
             <span>🇫🇧</span>
             <span>🇮🇳</span>
@@ -37,7 +39,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="text-center mt-12 text-sm">
-        © 2024 Dance Studio. All rights reserved.
+        © 2025 Dance Studio. All rights reserved.
       </div>
     </footer>
   );
