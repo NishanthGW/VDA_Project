@@ -2,4 +2,4 @@ npm run dev
 
 https://github.com/NishanthGW/VDA_Project.git
 
-git add .; git commit -m "8th Commit/ logo and real data"; git push origin main
+git add .; git commit -m "9th Commit/ mobile view"; git push origin main

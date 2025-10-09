@@ -26,8 +26,8 @@ const Services = () => {
   return (
     <div className="relative bg-[url('/assets/bg1.png')] bg-cover bg-center text-white z-0">
       <div className=' bg-black/85 text-white py-10 px-4 z-10'>
-        <h2 className="z-100 text-5xl font-bold text-center text-white mb-16">Our <span className="text-yellow-400">Services</span></h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        <h2 className="z-100 text-4xl md:text-5xl font-bold text-center text-white mb-16">Our <span className="text-yellow-400">Services</span></h2>
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-6xl mx-auto">
           {services.map((service, index) => (
             <div 
               key={index} 
@@ -39,10 +39,10 @@ const Services = () => {
               <div className="absolute -inset-[2px] rounded-lg overflow-hidden z-0">
                 <div className="absolute inset-0 bg-[conic-gradient(from_var(--angle),transparent,white,transparent)] opacity-0 group-hover:opacity-100 group-hover:animate-[spin_1.5s_linear_infinite] transition-opacity duration-300"></div>
               </div>
-              <div className="relative z-10 p-6 bg-gray-900 rounded-[calc(0.5rem-2px)] h-full transition-all duration-300">
-                <div className="text-4xl mb-4">{service.icon}</div>
-                <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                <p className="text-gray-400">{service.desc}</p>
+              <div className="relative z-10 p-4 sm:p-6 bg-gray-900 rounded-[calc(0.5rem-2px)] h-full transition-all duration-300">
+                <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">{service.icon}</div>
+                <h3 className="text-lg sm:text-xl font-semibold mb-1 sm:mb-2">{service.title}</h3>
+                <p className="text-xs sm:text-sm text-gray-400">{service.desc}</p>
               </div>
             </div>
           ))}

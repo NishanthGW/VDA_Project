@@ -222,8 +222,8 @@ const Career = () => {
           </div>
           <div>
             <h3 className="text-xl font-bold mb-4">Contact Us</h3>
-            <p className="text-gray-400">careers@vibedance.com</p>
-            <p className="text-gray-400">(555) 123-4567</p>
+            <p className="text-gray-400">vdacoimbatore@gmail.com</p>
+            <p className="text-gray-400">+91 9566619974</p>
           </div>
           <div>
             <h3 className="text-xl font-bold mb-4">Follow Us</h3>

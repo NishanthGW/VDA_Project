@@ -3,43 +3,64 @@ import logo from '/assets/logo.png';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-gray-400 py-12 px-4">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start">
-        <div className='h-full flex-row items-center justify-center'>
-          <div className="flex-row justify-center items-center py-8 text-4xl font-extrabold text-white leading-tigh ">
-            <p>Bringing out</p> 
-            <p className='flex text'>the <p className='text-yellow-400 indent-4 italic'> Vibe</p><p className='indent-4 '> in yourself</p></p>
-             
+    <footer className="bg-gray-900 text-gray-400 py-8 px-4 sm:px-6">
+      <div className="max-w-6xl mx-auto">
+        {/* Main content grid */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
+          
+          {/* Brand Section - Full width on mobile, 1st column on desktop */}
+          <div className="md:col-span-1">
+            <div className="text-center md:text-left">
+              <div className="py-4">
+                <div className="text-2xl sm:text-3xl font-extrabold text-white leading-tight">
+                  <p>Bringing out</p> 
+                  <div className="flex flex-wrap justify-center md:justify-start items-center gap-1 mt-1">
+                    <span>the</span>
+                    <span className="text-yellow-400 italic">Vibe</span>
+                    <span>in yourself</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Quick Links - 2nd column on desktop */}
+          <div className="text-center md:text-left">
+            <h4 className="text-white text-lg font-semibold mb-4">Quick Links</h4>
+            <ul className="space-y-2 text-sm sm:text-base">
+              <li className="hover:text-white cursor-pointer transition-colors">About Us</li>
+              <li className="hover:text-white cursor-pointer transition-colors">Services</li>
+              <li className="hover:text-white cursor-pointer transition-colors">Classes</li>
+              <li className="hover:text-white cursor-pointer transition-colors">Contact</li>
+            </ul>
+          </div>
+
+          {/* Contact Info - 3rd column on desktop */}
+          <div className="text-center md:text-left">
+            <h4 className="text-white text-lg font-semibold mb-4">Contact Us</h4>
+            <div className="space-y-2 text-sm sm:text-base">
+              <p>Phone: +91 9566619974</p>
+              <p>Email: vdacoimbatore@gmail.com</p>
+              <p>Address: Above CSB Bank, Sathy road, Ganapathy - 641006</p>
+            </div>
+          </div>
+
+          {/* Logo Section - 4th column on desktop */}
+          <div className="text-center md:text-left">
+            <div className="flex justify-center md:justify-start items-center py-4">
+              <img 
+                src={logo} 
+                alt="Vibe Dance Academy logo" 
+                className="w-48 sm:w-60 h-auto max-w-full" 
+              />
+            </div>          
           </div>
         </div>
-        <div className="flex flex-col justify-start items-center mb-4 md:mb-0">
-          <h4 className="text-white text-lg mb-2">Quick Links</h4>
-          <ul className="space-y-1">
-            <li>About Us</li>
-            <li>Services</li>
-            <li>Classes</li>
-            <li>Contact</li>
-          </ul>
+
+        {/* Copyright */}
+        <div className="text-center mt-8 pt-6 border-t border-gray-700 text-xs sm:text-sm">
+          © 2025 Dance Studio. All rights reserved.
         </div>
-        <div className="mb-4 md:mb-0">
-          <h4 className="text-white text-lg mb-2">Contact Us</h4>
-          <p>Phone: +91 9566619974</p>
-          <p>Email: vdacoimbatore@gmail.com</p>
-          <p>Address: Above CSB Bank, Sathy road, Ganapathy - 641006
-          </p>
-        </div>
-        <div className="mb-4 md:mb-0">
-          {/* <h3 className="text-white text-xl font-bold mb-2">VIBE DANCE ACADEMY</h3> */}
-          <div className='flex justify-center items-center py-4'><img src={logo} alt="Vibe Dance Academy logo" className="w-60 h-26" /></div>          
-          {/* <div className="flex space-x-2">
-            <span>🇫🇧</span>
-            <span>🇮🇳</span>
-            <span>🇹🇼</span>
-          </div> */}
-        </div>
-      </div>
-      <div className="text-center mt-12 text-sm">
-        © 2025 Dance Studio. All rights reserved.
       </div>
     </footer>
   );

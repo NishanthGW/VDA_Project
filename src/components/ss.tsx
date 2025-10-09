@@ -94,17 +94,23 @@ const Slideshow = () => {
           className="absolute w-full h-full"
         >
           <div className="w-full h-full relative">
-            <img 
-              src={slides[currentSlide].image} 
-              alt={`Slide ${currentSlide + 1}`} 
-              className="w-full h-full object-cover"
-              // Add error handling for broken images
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.style.backgroundColor = '#1f2937'; // Fallback background color
-                target.alt = 'Image not available';
-              }}
-            />
+            {/* Responsive image with multiple sources */}
+            <picture>
+              <source 
+                media="(max-width: 640px)" 
+                srcSet={slides[currentSlide].image.replace('.png', '-mobile.png') || slides[currentSlide].image}
+              />
+              <source 
+                media="(max-width: 1024px)" 
+                srcSet={slides[currentSlide].image.replace('.png', '-tablet.png') || slides[currentSlide].image}
+              />
+              <img 
+                src={slides[currentSlide].image} 
+                alt={`Slide ${currentSlide + 1}`} 
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </picture>
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent"></div>
             <div className="absolute inset-0 bg-black/55"></div>
           </div>
@@ -119,13 +125,13 @@ const Slideshow = () => {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={{ type: 'tween', ease: 'easeInOut', duration: 0.7 }}
-          className="absolute inset-0 flex items-end justify-start z-10 px-4 sm:px-6 md:px-8 lg:px-[10%] pb-6 sm:pb-12 md:pb-16"
+          className="absolute inset-0 flex items-end justify-start z-10 px-4 sm:px-6 md:px-8 lg:px-[10%] py-8 sm:py-12 md:py-16"
         >
           <div className="max-w-full sm:max-w-xl md:max-w-2xl w-full">
-            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2 sm:mb-6 text-gray-100 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-gray-100 leading-tight">
               {slides[currentSlide].title}
             </h1>
-            <p className="text-sm sm:text-lg md:text-xl mb-4 sm:mb-8 text-white/90 leading-relaxed max-w-full sm:max-w-lg">
+            <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-white/90 leading-relaxed max-w-full sm:max-w-lg">
               {slides[currentSlide].description}
             </p>
             {/* <motion.button 

@@ -54,9 +54,9 @@ const Floor: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
-    const handleBranchClick = (slug: string) => {
+  const handleBranchClick = (slug: string) => {
     navigate(`/branches?branch=${slug}`);
-    };  
+  };  
 
   const goToImage = (branchIndex: number, imageIndex: number) => {
     setCurrentImageIndexes(prevIndexes => 
@@ -67,28 +67,28 @@ const Floor: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-8 pt-48">
+    <div className="min-h-screen bg-gray-900 text-white px-4 py-24 md:p-8 md:pt-48">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-bold text-center mb-12 text-gray-100">
+        <h1 className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-gray-100">
           Our Branches
         </h1>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {branchSections.map((branch, branchIndex) => (
             <div
               key={branch.slug}
-              className="bg-gray-800 rounded-xl shadow-2xl overflow-hidden hover:shadow-gray-700/50 transition-all duration-300 hover:transform hover:scale-105 cursor-pointer group"
+              className="bg-gray-800 rounded-xl md:rounded-2xl shadow-lg md:shadow-2xl overflow-hidden hover:shadow-gray-700/50 transition-all duration-300 hover:transform hover:scale-105 cursor-pointer group"
               onClick={() => handleBranchClick(branch.slug)}
             >
               {/* Branch Title */}
-              <div className="bg-gray-900 py-4 px-6 border-b border-gray-700">
-                <h2 className="text-2xl font-bold text-yellow-500 text-center group-hover:text-yellow-400 transition-colors duration-300">
+              <div className="bg-gray-900 py-3 md:py-4 px-4 md:px-6 border-b border-gray-700">
+                <h2 className="text-xl md:text-2xl font-bold text-yellow-500 text-center group-hover:text-yellow-400 transition-colors duration-300">
                   {branch.title}
                 </h2>
               </div>
 
               {/* Image Slideshow */}
-              <div className="relative h-64 bg-black overflow-hidden">
+              <div className="relative h-48 sm:h-56 md:h-64 bg-black overflow-hidden">
                 <img
                   src={branch.images[currentImageIndexes[branchIndex]]}
                   alt={`${branch.title} ${currentImageIndexes[branchIndex] + 1}`}
@@ -96,7 +96,7 @@ const Floor: React.FC = () => {
                 />
                 
                 {/* Image Dots Indicator */}
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-1.5 md:space-x-2">
                   {branch.images.map((_, imageIndex) => (
                     <button
                       key={imageIndex}
@@ -104,7 +104,7 @@ const Floor: React.FC = () => {
                         e.stopPropagation();
                         goToImage(branchIndex, imageIndex);
                       }}
-                      className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                      className={`w-1.5 h-1.5 md:w-2 md:h-2 rounded-full transition-all duration-200 ${
                         imageIndex === currentImageIndexes[branchIndex] 
                           ? 'bg-yellow-500 scale-125' 
                           : 'bg-gray-500 hover:bg-gray-400'
@@ -116,9 +116,9 @@ const Floor: React.FC = () => {
               </div>
 
               {/* Branch Info */}
-              <div className="p-6">
+              <div className="p-4 md:p-6">
                 <div className="text-center">
-                  <p className="text-gray-300 mb-4 text-lg">
+                  <p className="text-gray-300 mb-3 md:mb-4 text-sm md:text-lg">
                     View Batch Schedule & Timings
                   </p>
                   <button 
@@ -126,7 +126,7 @@ const Floor: React.FC = () => {
                       e.stopPropagation();
                       handleBranchClick(branch.slug);
                     }}
-                    className="w-full bg-yellow-600 hover:bg-yellow-700 text-gray-900 font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 focus:ring-offset-gray-800"
+                    className="w-full bg-yellow-600 hover:bg-yellow-700 text-gray-900 font-semibold py-2 md:py-3 px-4 md:px-6 rounded-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 focus:ring-offset-gray-800 text-sm md:text-base"
                   >
                     Check Availability
                   </button>
@@ -137,8 +137,8 @@ const Floor: React.FC = () => {
         </div>
 
         {/* Additional Info */}
-        <div className="mt-12 text-center">
-          <p className="text-gray-400 text-lg">
+        <div className="mt-8 md:mt-12 text-center">
+          <p className="text-gray-400 text-sm md:text-lg px-4">
             Click on any branch to view detailed batch timings and availability
           </p>
         </div>

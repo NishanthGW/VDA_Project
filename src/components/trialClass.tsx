@@ -251,7 +251,7 @@ const TrialClass = () => {
       <div className="max-w-4xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-purple-500">
+          <h1 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-500">
             {title}
           </h1>
           <p className="text-gray-300 text-lg">
@@ -275,7 +275,7 @@ const TrialClass = () => {
             {/* Left Side - Information */}
             <div className={`md:w-2/5 p-8 ${
               formType === 'rental' 
-                ? 'bg-gradient-to-b from-purple-500 to-purple-600 text-white' 
+                ? 'bg-gradient-to-b from-yellow-500 to-yellow-600 text-white' 
                 : 'bg-gradient-to-b from-yellow-500 to-yellow-600 text-black'
             }`}>
               <h2 className="text-2xl font-bold mb-6">
@@ -286,7 +286,7 @@ const TrialClass = () => {
                 {features.map((feature, index) => (
                   <div key={index} className="flex items-start">
                     <div className={`p-2 rounded-full mr-4 ${
-                      formType === 'rental' ? 'bg-black text-purple-400' : 'bg-black text-yellow-500'
+                      formType === 'rental' ? 'bg-black text-yellow-400' : 'bg-black text-yellow-500'
                     }`}>
                       <feature.icon className="text-lg" />
                     </div>
@@ -299,7 +299,7 @@ const TrialClass = () => {
               </div>
               
               <div className={`mt-10 p-4 rounded-lg ${
-                formType === 'rental' ? 'bg-black text-purple-400' : 'bg-black text-yellow-500'
+                formType === 'rental' ? 'bg-black text-yellow-400' : 'bg-black text-yellow-500'
               }`}>
                 <h3 className="font-bold mb-2">Contact Information</h3>
                 <div className="space-y-2 text-sm">
@@ -333,7 +333,7 @@ const TrialClass = () => {
                             value={formData.eventType}
                             onChange={handleChange}
                             required
-                            className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent appearance-none"
+                            className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent appearance-none"
                           >
                             <option value="">Select event type</option>
                             <option value="photoshoot">Photoshoot</option>
@@ -361,7 +361,7 @@ const TrialClass = () => {
                             onChange={handleChange}
                             min="1"
                             max="100"
-                            className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                            className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                             placeholder="Number of guests"
                           />
                           <FaUsers className="absolute right-3 top-3.5 text-gray-400 pointer-events-none" />
@@ -382,7 +382,7 @@ const TrialClass = () => {
                           onChange={handleChange}
                           required
                           min={new Date().toISOString().split('T')[0]}
-                          className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                          className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                         />
                         <FaCalendar className="absolute right-3 top-3.5 text-gray-400 pointer-events-none" />
                       </div>
@@ -399,7 +399,7 @@ const TrialClass = () => {
                           name="startTime"
                           value={formData.startTime}
                           onChange={handleChange}
-                          className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                          className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                         />
                       </div>
                       
@@ -413,7 +413,7 @@ const TrialClass = () => {
                           name="endTime"
                           value={formData.endTime}
                           onChange={handleChange}
-                          className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                          className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                         />
                       </div>
                     </div>
@@ -428,7 +428,7 @@ const TrialClass = () => {
                         value={formData.rentalPurpose}
                         onChange={handleChange}
                         rows={2}
-                        className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                        className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                         placeholder="Brief description of your event purpose..."
                       />
                     </div>
@@ -569,7 +569,7 @@ const TrialClass = () => {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                       placeholder={formType === 'rental' ? 'Enter your full name' : 'Enter parent/guardian name'}
                     />
                   </div>
@@ -584,7 +584,7 @@ const TrialClass = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                       placeholder="your@email.com"
                     />
                   </div>
@@ -602,7 +602,7 @@ const TrialClass = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     required
-                    className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                     placeholder="+91 12345 67890"
                   />
                 </div>
@@ -618,7 +618,7 @@ const TrialClass = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows={3}
-                    className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                     placeholder="Any special requirements or notes..."
                   />
                 </div>
@@ -630,7 +630,7 @@ const TrialClass = () => {
                     disabled={isSubmitting}
                     className={`w-full font-bold py-3 px-4 rounded-lg transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-opacity-50 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed ${
                       formType === 'rental' 
-                        ? 'bg-purple-500 hover:bg-purple-600 text-white focus:ring-purple-500' 
+                        ? 'bg-yellow-500 hover:bg-yellow-600 text-white focus:ring-yellow-500' 
                         : 'bg-yellow-500 hover:bg-yellow-600 text-black focus:ring-yellow-500'
                     }`}
                   >

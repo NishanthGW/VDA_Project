@@ -182,8 +182,8 @@ const Join = () => {
       <div className="max-w-6xl w-full mx-auto relative z-10">
         {/* Header Section */}
         <div className="text-center mb-12">
-          <h2 className="text-5xl font-bold bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent mb-4">
-            <span className="text-white text-6xl">Join</span> Our Dance Family
+          <h2 className="text-4xl md:text-5xl  font-bold bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent mb-4">
+            <span className="text-white">Join</span> Our Dance Family
           </h2>
           <p className="text-gray-200 text-xl">
             Begin your dance journey with us today

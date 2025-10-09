@@ -8,10 +8,6 @@ interface Feature {
   desc: string;
 }
 
-interface BookingFormModalProps {
-  onClose: () => void;
-}
-
 const Space = () => {
   const navigate = useNavigate();
   const features: Feature[] = [
@@ -44,11 +40,10 @@ const Space = () => {
       setTransitionDirection('next');
       setNextImageIndex((currentImageIndex + 1) % images.length);
       
-      // Wait for animation to complete before updating current index
       setTimeout(() => {
         setCurrentImageIndex((currentImageIndex + 1) % images.length);
       }, 500);
-    }, 4000); // Change image every 4 seconds (including animation time)
+    }, 4000);
 
     return () => clearInterval(interval);
   }, [currentImageIndex, images.length]);
@@ -60,7 +55,6 @@ const Space = () => {
     setTransitionDirection(direction);
     setNextImageIndex(index);
     
-    // Wait for animation to complete before updating current index
     setTimeout(() => {
       setCurrentImageIndex(index);
     }, 500);
@@ -71,12 +65,16 @@ const Space = () => {
   };
 
   return (
-    <div className="bg-[url('/assets/bg5.png')] bg-cover bg-center bg-black text-white py-16 px-4">
-      <h2 className="text-5xl font-bold text-center mb-16">Our <span className="text-yellow-400">Vibe</span>, Your <span className="text-yellow-400">Vibe</span></h2>
+    <div className="bg-[url('/assets/bg5.png')] bg-cover bg-center bg-black text-white py-8 md:py-16 px-4">
+      {/* Header */}
+      <h2 className="text-3xl md:text-5xl font-bold text-center mb-8 md:mb-16 px-2">
+        Our <span className="text-yellow-400">Vibe</span>, Your <span className="text-yellow-400">Vibe</span>
+      </h2>
+      
       <div className="max-w-6xl mx-auto">
-        {/* Slideshow Container - Increased height */}
-        <div className="w-full h-96 md:h-[500px] rounded-lg mb-8 overflow-hidden relative">
-          {/* Slides with enhanced animation */}
+        {/* Slideshow Container - Mobile Optimized */}
+        <div className="w-full h-64 md:h-96 lg:h-[500px] rounded-xl md:rounded-lg mb-6 md:mb-8 overflow-hidden relative shadow-2xl">
+          {/* Current Slide */}
           <div 
             className="absolute inset-0 bg-cover bg-center transition-transform duration-1000"
             style={{ 
@@ -87,7 +85,7 @@ const Space = () => {
             }}
           />
           
-          {/* Next slide (for animation) */}
+          {/* Next Slide (for animation) */}
           <div 
             className={`absolute inset-0 bg-cover bg-center transition-transform duration-1000 ${
               transitionDirection === 'next' 
@@ -102,13 +100,13 @@ const Space = () => {
             }}
           />
           
-          {/* Dots Indicator */}
-          <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
+          {/* Dots Indicator - Mobile Optimized */}
+          <div className="absolute bottom-3 md:bottom-4 left-0 right-0 flex justify-center gap-1.5 md:gap-2">
             {images.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
                   index === currentImageIndex 
                     ? 'bg-yellow-400 scale-125' 
                     : 'bg-gray-500 hover:bg-gray-300'
@@ -118,53 +116,70 @@ const Space = () => {
             ))}
           </div>
           
-          {/* Navigation Arrows */}
+          {/* Navigation Arrows - Mobile Optimized */}
           <button 
             onClick={() => goToSlide(currentImageIndex === 0 ? images.length - 1 : currentImageIndex - 1)}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-75 text-white p-2 rounded-full transition-all duration-300"
+            className="absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-60 hover:bg-opacity-80 text-white p-1.5 md:p-2 rounded-full transition-all duration-300 text-lg md:text-base"
             aria-label="Previous slide"
           >
             ←
           </button>
           <button 
             onClick={() => goToSlide((currentImageIndex + 1) % images.length)}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-75 text-white p-2 rounded-full transition-all duration-300"
+            className="absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-60 hover:bg-opacity-80 text-white p-1.5 md:p-2 rounded-full transition-all duration-300 text-lg md:text-base"
             aria-label="Next slide"
           >
             →
           </button>
           
-          {/* Book for Rent Button - positioned on image */}
-          <div className="absolute bottom-8 right-8">
+          {/* Book for Rent Button - Mobile Optimized */}
+          <div className="absolute bottom-3 md:bottom-8 right-3 md:right-8">
             <button 
               onClick={handleBookForRent}
-              className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-8 rounded-xl text-base md:text-lg transition-all duration-300 shadow-lg hover:scale-105 border-2 border-yellow-300"
+              className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-4 md:py-3 md:px-8 rounded-lg md:rounded-xl text-sm md:text-base lg:text-lg transition-all duration-300 shadow-lg hover:scale-105 border-2 border-yellow-300 whitespace-nowrap"
             >
               Book for Rent
             </button>
           </div>
         </div>
         
-        {/* Features Grid - First row with 6 items */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-4">
-          {features.slice(0, 6).map((feature, index) => (
-            <div key={index} className="bg-gray-900 p-2 rounded-lg border border-gray-700 text-center hover:bg-gray-800 transition-colors duration-300">
-              <div className="text-3xl mb-2">{feature.icon}</div>
-              <h3 className="text-sm font-semibold">{feature.title}</h3>
-              <p className="text-white text-sm">{feature.desc}</p>
-            </div>
-          ))}
-        </div>
-        
-        {/* Features Grid - Second row with 5 items (centered) */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 px-0 sm:px-12 lg:px-24">
-          {features.slice(6).map((feature, index) => (
-            <div key={index+6} className="bg-gray-900 p-2 rounded-lg border border-gray-700 text-center hover:bg-gray-800 transition-colors duration-300">
-              <div className="text-3xl mb-2">{feature.icon}</div>
-              <h3 className="text-sm font-semibold">{feature.title}</h3>
-              <p className="text-gray-500 text-xs">{feature.desc}</p>
-            </div>
-          ))}
+        {/* Features Grid - Mobile Optimized */}
+        <div className="space-y-4 md:space-y-0">
+          {/* First row - Responsive grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4">
+            {features.slice(0, 6).map((feature, index) => (
+              <div 
+                key={index} 
+                className="bg-gray-900 p-3 md:p-4 rounded-lg border border-gray-700 text-center hover:bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              >
+                <div className="text-2xl md:text-3xl mb-1 md:mb-2">{feature.icon}</div>
+                <h3 className="text-xs md:text-sm font-semibold leading-tight md:leading-normal">
+                  {feature.title}
+                </h3>
+                {feature.desc && (
+                  <p className="text-white text-xs mt-1">{feature.desc}</p>
+                )}
+              </div>
+            ))}
+          </div>
+          
+          {/* Second row - Centered with responsive padding */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4 px-0 sm:px-4 lg:px-24">
+            {features.slice(6).map((feature, index) => (
+              <div 
+                key={index+6} 
+                className="bg-gray-900 p-3 md:p-4 rounded-lg border border-gray-700 text-center hover:bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              >
+                <div className="text-2xl md:text-3xl mb-1 md:mb-2">{feature.icon}</div>
+                <h3 className="text-xs md:text-sm font-semibold leading-tight md:leading-normal">
+                  {feature.title}
+                </h3>
+                {feature.desc && (
+                  <p className="text-gray-500 text-xs mt-1">{feature.desc}</p>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

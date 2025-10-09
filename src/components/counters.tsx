@@ -44,7 +44,8 @@ const AnimatedCounter = ({
         }
       },
       {
-        threshold: 0.5, // Trigger when 50% of the element is visible
+        threshold: 0.3, // Lower threshold for mobile
+        rootMargin: '0px 0px -50px 0px', // Trigger slightly earlier
       }
     );
 
@@ -62,7 +63,7 @@ const AnimatedCounter = ({
   return (
     <motion.span 
       ref={counterRef}
-      className="block text-5xl font-bold text-yellow-400"
+      className="block font-bold text-yellow-400 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -81,18 +82,20 @@ const Counters = () => {
   ];
 
   return (
-    <div className="w-full bg-black px-[5%] py-8">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+    <div className="w-full bg-black px-4 sm:px-[5%] py-6 sm:py-8 lg:py-8">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 max-w-7xl mx-auto">
         {counterData.map((stat, index) => (
           <motion.div 
             key={index}
-            className="text-center"
+            className="text-center p-3 sm:p-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 + 0.5, duration: 0.5 }}
           >
             <AnimatedCounter target={stat.target} suffix={stat.suffix} />
-            <span className="text-lg text-white mt-2">{stat.label}</span>
+            <span className="text-xs xs:text-sm sm:text-base md:text-lg text-white mt-2 sm:mt-3 block leading-tight">
+              {stat.label}
+            </span>
           </motion.div>
         ))}
       </div>

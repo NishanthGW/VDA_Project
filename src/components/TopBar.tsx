@@ -1,4 +1,4 @@
-import { FaPhoneAlt, FaFacebookF, FaInstagram, FaYoutube, FaBars, FaTimes, FaChevronDown } from 'react-icons/fa';
+import { FaPhoneAlt, FaFacebookF, FaInstagram, FaYoutube, FaBars, FaTimes } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import logo from '/assets/logo.png';
@@ -8,7 +8,6 @@ const TopBar = () => {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,10 +27,6 @@ const TopBar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const handleNavigation = (path: string) => {
-    navigate(path);
-    setIsMenuOpen(false); // Close mobile menu if open
-  };
 
   return (
     <div className={`w-full fixed top-0 z-50 transition-all duration-500 ${scrolled ? 'bg-[#0f0e11] shadow-xl py-0' : 'bg-gradient-to-b from-[#1a191d] to-[#232225] py-1'}`}>
@@ -66,7 +61,7 @@ const TopBar = () => {
         <div className="flex items-center space-x-4 z-10">
           <div className="flex items-center space-x-3">
             <a href="https://www.facebook.com/share/1H8MCdEwPe/?mibextid=wwXIfr" className="text-gray-300 hover:text-blue-400 transition-all duration-300 transform hover:-translate-y-1 p-2 bg-gray-800 rounded-full">
-              <FaFacebookF size={16} />
+              <FaFacebookF size={14} />
             </a>
             <a href="https://www.instagram.com/vibe_dance_academy__?igsh=MTI4NXZqdm9sdmV5cQ==" className="text-gray-300 hover:text-pink-500 transition-all duration-300 transform hover:-translate-y-1 p-2 bg-gray-800 rounded-full">
               <FaInstagram size={16} />
@@ -147,7 +142,7 @@ const TopBar = () => {
 
           {/* Mobile Menu Button */}
           <button 
-            className="lg:hidden text-white p-2 rounded-md bg-gray-800 hover:bg-yellow-500 hover:text-black transition-all duration-300 relative group"
+            className="lg:hidden text-white p-3 rounded-md bg-gray-800/90 hover:bg-yellow-500 hover:text-black transition-all duration-300 relative group z-50"
             onClick={toggleMenu}
           >
             {isMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
@@ -156,49 +151,49 @@ const TopBar = () => {
         </div>
 
         {/* Mobile Navigation Menu */}
-        <div className={`lg:hidden overflow-hidden transition-all duration-500 ease-in-out ${isMenuOpen ? 'max-h-96 py-4' : 'max-h-0'}`}>
-          <div className="flex flex-col space-y-2 pt-4">
+        <div className={`lg:hidden transition-all duration-500 ease-in-out relative z-40 ${isMenuOpen ? 'max-h-screen opacity-100 py-4' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+          <div className="flex flex-col space-y-2 pt-4 bg-black/90 backdrop-blur-sm rounded-lg border border-gray-700">
             <Link 
               to="/"
-              className="text-white hover:text-yellow-400 transition-all duration-300 py-3 px-4 rounded-md hover:bg-gray-800"
+              className="text-white hover:text-yellow-400 transition-all duration-300 py-4 px-6 rounded-md hover:bg-gray-800/50 text-lg font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               Home
             </Link>
             <Link 
               to="/achievements"
-              className="text-white hover:text-yellow-400 transition-all duration-300 py-3 px-4 rounded-md hover:bg-gray-800"
+              className="text-white hover:text-yellow-400 transition-all duration-300 py-4 px-6 rounded-md hover:bg-gray-800/50 text-lg font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               Achievements
             </Link>
             <Link 
               to="/about"
-              className="text-white hover:text-yellow-400 transition-all duration-300 py-3 px-4 rounded-md hover:bg-gray-800"
+              className="text-white hover:text-yellow-400 transition-all duration-300 py-4 px-6 rounded-md hover:bg-gray-800/50 text-lg font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               About Us
             </Link>
             <Link 
               to="/career"
-              className="text-white hover:text-yellow-400 transition-all duration-300 py-3 px-4 rounded-md hover:bg-gray-800"
+              className="text-white hover:text-yellow-400 transition-all duration-300 py-4 px-6 rounded-md hover:bg-gray-800/50 text-lg font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               Career
             </Link>
             <Link 
               to="/events"
-              className="text-white hover:text-yellow-400 transition-all duration-300 py-3 px-4 rounded-md hover:bg-gray-800"
+              className="text-white hover:text-yellow-400 transition-all duration-300 py-4 px-6 rounded-md hover:bg-gray-800/50 text-lg font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               Events
             </Link>
             <Link 
-              to="/floor"
-              className="text-white hover:text-yellow-400 transition-all duration-300 py-3 px-4 rounded-md hover:bg-gray-800"
+              to="/branches"
+              className="text-white hover:text-yellow-400 transition-all duration-300 py-4 px-6 rounded-md hover:bg-gray-800/50 text-lg font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
-              Floor
+              Branches
             </Link>
           </div>
         </div>

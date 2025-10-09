@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { motion, useAnimation, useInView, type Variants } from 'framer-motion';
 import { Parallax } from 'react-parallax';
-import TopBar from './TopBar';
 
 interface Achievement {
   title: string;
@@ -32,10 +31,10 @@ const achievements: Achievement[] = [
   },
 ];
 
-const Achievement: React.FC = () => {
+const Achievements: React.FC = () => {
   const controls = useAnimation();
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   useEffect(() => {
     if (isInView) {
@@ -67,25 +66,23 @@ const Achievement: React.FC = () => {
   };
 
   return (
-    
     <Parallax
       bgImage="/assets/bg_ach.jpg"
       strength={300}
-      className="bg-cover bg-center h-[100vh] pt-20"
+      className="bg-cover bg-center min-h-screen"
     >
-      {/* <TopBar /> */}
-      <div className="flex bg-black bg-opacity-70 py-16 h-[90vh] mt-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="flex bg-black bg-opacity-70 py-8 md:py-16 min-h-screen md:pt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <motion.div
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-12"
+            className="text-center mb-8 md:mb-12"
           >
-            <h2 className="text-4xl font-bold text-yellow-400 tracking-tight my-10">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-yellow-400 tracking-tight my-6 md:my-10 px-4 pt-20">
               Vibe Dance Academy Achievements
             </h2>
-            <p className="mt-4 text-lg text-gray-300">
+            <p className="mt-2 md:mt-4 text-base md:text-lg text-gray-300 px-4">
               Celebrating our journey of excellence in dance
             </p>
           </motion.div>
@@ -95,23 +92,25 @@ const Achievement: React.FC = () => {
             variants={containerVariants}
             initial="hidden"
             animate={controls}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 px-2 sm:px-0"
           >
             {achievements.map((achievement, index) => (
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className=" bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-yellow-400"
+                className="bg-gray-800 rounded-lg p-4 md:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-yellow-400 flex flex-col h-full"
               >
-                <div className="flex flex-col items-around justify-between text-center h-full">
-                  <div>
-                    <h3 className="text-xl font-semibold text-white mb-2">
+                <div className="flex flex-col justify-between h-full">
+                  <div className="flex-1 mb-4 md:mb-6">
+                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3 line-clamp-2">
                       {achievement.title}
                     </h3>
-                    <p className="text-gray-300 mb-4">{achievement.description}</p>
+                    <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+                      {achievement.description}
+                    </p>
                   </div>
-                  <div className='flex justify-center items-end'>
-                    <span className="inline-block bg-yellow-400 text-black font-bold py-1 px-3 rounded-full text-sm">
+                  <div className="flex justify-center">
+                    <span className="inline-block bg-yellow-400 text-black font-bold py-1 md:py-2 px-3 md:px-4 rounded-full text-sm md:text-base">
                       {achievement.year}
                     </span>
                   </div>
@@ -125,4 +124,4 @@ const Achievement: React.FC = () => {
   );
 };
 
-export default Achievement;
+export default Achievements;

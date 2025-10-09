@@ -87,16 +87,16 @@ const Branch: React.FC = () => {
   const displayBranch = displayBranches[0] || currentBranch;
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-8 pt-48">
+    <div className="min-h-screen bg-gray-900 text-white px-4 py-24 md:p-8 md:pt-48">
       <div className="max-w-6xl mx-auto">
         {/* Back button when viewing specific branch */}
         {branchParam && (
           <div className="mb-6">
             <button
               onClick={() => navigate('/floor')}
-              className="flex items-center text-yellow-500 hover:text-yellow-400 transition-colors duration-200 mb-4"
+              className="flex items-center text-yellow-500 hover:text-yellow-400 transition-colors duration-200 mb-4 text-sm md:text-base"
             >
-              <ChevronLeftIcon className="h-5 w-5 mr-1" />
+              <ChevronLeftIcon className="h-4 w-4 md:h-5 md:w-5 mr-1" />
               Back to All Branches
             </button>
           </div>
@@ -104,52 +104,52 @@ const Branch: React.FC = () => {
 
         {/* Navigation Arrows and Title - Only show if viewing all branches */}
         {!branchParam && (
-          <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center justify-between mb-6 md:mb-8">
             <button
               onClick={prevBranch}
-              className="p-3 rounded-full bg-gray-800 hover:bg-gray-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+              className="p-2 md:p-3 rounded-full bg-gray-800 hover:bg-gray-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-500"
               aria-label="Previous branch"
             >
-              <ChevronLeftIcon className="h-6 w-6" />
+              <ChevronLeftIcon className="h-5 w-5 md:h-6 md:w-6" />
             </button>
             
-            <h1 className="text-4xl font-bold text-center text-gray-100">
+            <h1 className="text-2xl md:text-4xl font-bold text-center text-gray-100 px-2">
               {displayBranch.title}
             </h1>
             
             <button
               onClick={nextBranch}
-              className="p-3 rounded-full bg-gray-800 hover:bg-gray-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+              className="p-2 md:p-3 rounded-full bg-gray-800 hover:bg-gray-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-500"
               aria-label="Next branch"
             >
-              <ChevronRightIcon className="h-6 w-6" />
+              <ChevronRightIcon className="h-5 w-5 md:h-6 md:w-6" />
             </button>
           </div>
         )}
 
         {/* Single branch view */}
         {branchParam && (
-          <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-gray-100 mb-2">
+          <div className="text-center mb-6 md:mb-8">
+            <h1 className="text-2xl md:text-4xl font-bold text-gray-100 mb-2">
               {displayBranch.title} Branch
             </h1>
-            <p className="text-gray-400">Gallery & Facilities</p>
+            <p className="text-gray-400 text-sm md:text-base">Gallery & Facilities</p>
           </div>
         )}
 
         {/* Images Container */}
-        <div className="flex flex-col md:flex-row gap-6 justify-center items-stretch">
+        <div className="flex flex-col md:flex-row gap-4 md:gap-6 justify-center items-stretch">
           {displayBranch.images.map((image, index) => (
             <div
               key={index}
-              className="flex-1 flex flex-col items-center"
+              className="flex-1 flex flex-col items-center mb-4 md:mb-0"
             >
               <div className="w-full bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <img
                   src={image}
                   alt={`${displayBranch.title} ${index + 1}`}
                   className="w-full h-auto max-w-full object-contain"
-                  style={{ maxHeight: '400px' }}
+                  style={{ maxHeight: '300px' }}
                 />
               </div>
             </div>
@@ -158,12 +158,12 @@ const Branch: React.FC = () => {
 
         {/* Dots Indicator - Only show if viewing all branches */}
         {!branchParam && (
-          <div className="flex justify-center mt-8 space-x-2">
+          <div className="flex justify-center mt-6 md:mt-8 space-x-2">
             {branchData.map((branch, index) => (
               <button
                 key={branch.slug}
                 onClick={() => goToBranch(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-200 ${
                   index === currentIndex ? 'bg-yellow-500 scale-125' : 'bg-gray-600 hover:bg-gray-500'
                 }`}
                 aria-label={`Go to ${branch.title}`}
@@ -172,27 +172,6 @@ const Branch: React.FC = () => {
           </div>
         )}
 
-        {/* Branch Information */}
-        {/* <div className="mt-12 text-center">
-          <h2 className="text-2xl font-bold text-yellow-500 mb-4">
-            Batch Timings & Availability
-          </h2>
-          <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-            Explore our state-of-the-art facilities at {displayBranch.title} branch. 
-            Contact us for detailed batch timings, class schedules, and membership information.
-          </p>
-          <div className="flex justify-center gap-4">
-            <button className="bg-yellow-600 hover:bg-yellow-700 text-gray-900 font-semibold py-3 px-8 rounded-lg transition-all duration-200">
-              Contact for Timings
-            </button>
-            <button 
-              onClick={() => navigate('/trial-class')}
-              className="bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-200 border border-gray-600"
-            >
-              Book Trial Class
-            </button>
-          </div>
-        </div> */}
       </div>
     </div>
   );
