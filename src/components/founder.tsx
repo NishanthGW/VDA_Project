@@ -1,7 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import { motion, useAnimation, useInView, useScroll, useTransform, type Variants } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const Founder: React.FC = () => {
+  const navigate = useNavigate();
   const controls = useAnimation();
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { amount: 0.3 });
@@ -86,7 +88,7 @@ const Founder: React.FC = () => {
     <motion.section 
       ref={ref}
       style={{ opacity, scale }}
-      className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-20 overflow-hidden"
+      className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-12 md:py-20 overflow-hidden" // Changed py-20 to py-12 md:py-20
     >
       {/* Background decorative elements with parallax */}
       <div className="absolute top-0 left-0 w-full h-full opacity-10 overflow-hidden">
@@ -108,12 +110,12 @@ const Founder: React.FC = () => {
       >
         <motion.h2
           variants={childVariants}
-          className="text-4xl md:text-5xl font-bold text-center text-white mb-16"
+          className="text-4xl md:text-5xl font-bold text-center text-white mb-0 md:mb-16" // Changed mb-16 to mb-10 md:mb-16
         >
           Meet Our <span className="text-yellow-400">Visionary</span>
         </motion.h2>
         
-        <div className="flex flex-col lg:flex-row items-center gap-12">
+        <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-12"> {/* Changed gap-12 to gap-8 md:gap-12 */}
           <motion.div
             style={{ y }}
             variants={imageVariants}
@@ -171,11 +173,11 @@ const Founder: React.FC = () => {
             </div>
             
             <motion.div 
-              className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              className="mt-8 md:mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start" // Changed mt-10 to mt-8 md:mt-10
             >
               <motion.button
                 variants={buttonVariants}
-                onClick={() => window.location.href = '/about'}
+                onClick={() => navigate('/about')}
                 whileHover="hover"
                 whileTap="tap"
                 className="px-8 py-4 bg-gradient-to-r from-yellow-500 to-amber-600 text-white font-semibold rounded-xl shadow-lg"
@@ -185,7 +187,7 @@ const Founder: React.FC = () => {
               
               <motion.button
                 variants={buttonVariants}
-                onClick={() => window.location.href = '/achievements'}
+                onClick={() => navigate('/achievements')}
                 whileHover="hover"
                 whileTap="tap"
                 className="px-8 py-4 border-2 border-yellow-400/30 text-yellow-400 font-semibold rounded-xl backdrop-blur-sm"

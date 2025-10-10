@@ -109,12 +109,6 @@ const TopBar = () => {
               Home
             </Link>
             <Link 
-              to="/achievements"
-              className="flex items-center px-4 py-2 rounded-lg transition-all duration-300 text-white hover:text-yellow-400 hover:bg-gray-800"
-            >
-              Achievements
-            </Link>
-            <Link 
               to="/about"
               className="flex items-center px-4 py-2 rounded-lg transition-all duration-300 text-white hover:text-yellow-400 hover:bg-gray-800"
             >
@@ -137,6 +131,12 @@ const TopBar = () => {
               className="flex items-center px-4 py-2 rounded-lg transition-all duration-300 text-white hover:text-yellow-400 hover:bg-gray-800"
             >
               Branches
+            </Link>
+            <Link 
+              to="/achievements"
+              className="flex items-center px-4 py-2 rounded-lg transition-all duration-300 text-white hover:text-yellow-400 hover:bg-gray-800"
+            >
+              Achievements
             </Link>
           </nav>
 
@@ -161,13 +161,6 @@ const TopBar = () => {
               Home
             </Link>
             <Link 
-              to="/achievements"
-              className="text-white hover:text-yellow-400 transition-all duration-300 py-4 px-6 rounded-md hover:bg-gray-800/50 text-lg font-medium"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Achievements
-            </Link>
-            <Link 
               to="/about"
               className="text-white hover:text-yellow-400 transition-all duration-300 py-4 px-6 rounded-md hover:bg-gray-800/50 text-lg font-medium"
               onClick={() => setIsMenuOpen(false)}
@@ -189,11 +182,18 @@ const TopBar = () => {
               Events
             </Link>
             <Link 
-              to="/branches"
+              to="/floor"
               className="text-white hover:text-yellow-400 transition-all duration-300 py-4 px-6 rounded-md hover:bg-gray-800/50 text-lg font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               Branches
+            </Link>
+            <Link 
+              to="/achievements"
+              className="text-white hover:text-yellow-400 transition-all duration-300 py-4 px-6 rounded-md hover:bg-gray-800/50 text-lg font-medium"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Achievements
             </Link>
           </div>
         </div>

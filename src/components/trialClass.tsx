@@ -305,7 +305,7 @@ const TrialClass = () => {
                 <div className="space-y-2 text-sm">
                   <div className="flex items-center">
                     <FaEnvelope className="mr-2 text-blue-400" />
-                    <span>info@vibedance.com</span>
+                    <span>vdacoimbatore@gmail.com</span>
                   </div>
                   <div className="flex items-center">
                     <FaPaperPlane className="mr-2 text-green-400" />
