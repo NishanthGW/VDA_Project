@@ -8,6 +8,7 @@ import Events from './components/events';
 import TrialClass from './components/trialClass';
 import Branch from './components/branches';
 import Floor from './components/floor';
+import Batch from './components/batch';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/floor" element={<Floor />} />
           <Route path="/branches" element={<Branch />} />
           <Route path="/trial-class" element={<TrialClass />} />
+          <Route path="/batch" element={<Batch />} />
         </Routes>
       </div>
     </BrowserRouter>

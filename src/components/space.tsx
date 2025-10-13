@@ -21,7 +21,8 @@ const Space = () => {
     { icon: '🎵', title: 'Rhythmic Sound System', desc: '' },
     { icon: '📹', title: '24/7 CCTV Surveillance', desc: '' },
     { icon: '📶', title: 'Unlimited WiFi', desc: '' },
-    { icon: '🔋', title: 'UPS Facility', desc: '' }, 
+    { icon: '🔋', title: 'UPS Facility', desc: '' },
+    { icon: '🏍️', title: 'Parking Facility', desc: '' }, // Added parking facility
   ];
 
   // Image paths
@@ -144,13 +145,13 @@ const Space = () => {
         </div>
         
         {/* Features Grid - Mobile Optimized */}
-        <div className="space-y-4 md:space-y-0">
+        <div className="space-y-4 md:space-y-8">
           {/* First row - Responsive grid */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4">
             {features.slice(0, 6).map((feature, index) => (
               <div 
                 key={index} 
-                className="bg-gray-900 p-3 md:p-4 rounded-lg border border-gray-700 text-center hover:bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                className="bg-gray-900 p-3 md:p-4 rounded-lg border border-gray-700 text-center hover:bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-lg h-28 md:h-32 flex flex-col justify-center"
               >
                 <div className="text-2xl md:text-3xl mb-1 md:mb-2">{feature.icon}</div>
                 <h3 className="text-xs md:text-sm font-semibold leading-tight md:leading-normal">
@@ -164,11 +165,11 @@ const Space = () => {
           </div>
           
           {/* Second row - Centered with responsive padding */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4 px-0 sm:px-4 lg:px-24">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4 px-0 sm:px-4 lg:px-12">
             {features.slice(6).map((feature, index) => (
               <div 
                 key={index+6} 
-                className="bg-gray-900 p-3 md:p-4 rounded-lg border border-gray-700 text-center hover:bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                className="bg-gray-900 p-3 md:p-4 rounded-lg border border-gray-700 text-center hover:bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-lg h-28 md:h-32 flex flex-col justify-center"
               >
                 <div className="text-2xl md:text-3xl mb-1 md:mb-2">{feature.icon}</div>
                 <h3 className="text-xs md:text-sm font-semibold leading-tight md:leading-normal">

@@ -91,7 +91,14 @@ const Branch: React.FC = () => {
         {/* Back button */}
         <div className="mb-6">
           <button
-            onClick={() => navigate('/floor')}
+            onClick={() => {
+              // Go back to floor with the same branch parameter if it exists
+              if (branchParam) {
+                navigate(`/floor?branch=${branchParam}`);
+              } else {
+                navigate('/floor');
+              }
+            }}
             className="flex items-center text-yellow-500 hover:text-yellow-400 transition-colors duration-200 mb-4 text-sm md:text-base"
           >
             <svg className="h-4 w-4 md:h-5 md:w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">

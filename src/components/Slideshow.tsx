@@ -105,7 +105,7 @@ const Slideshow = () => {
                 target.alt = 'Image not available';
               }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
             <div className="absolute inset-0 bg-black/55"></div>
           </div>
         </motion.div>

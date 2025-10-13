@@ -64,6 +64,7 @@ const Floor: React.FC = () => {
   }, []);
 
   const handleBranchClick = (slug: string) => {
+    // Navigate to branch with the specific branch parameter
     navigate(`/branches?branch=${slug}`);
   };  
 
@@ -80,25 +81,16 @@ const Floor: React.FC = () => {
     navigate('/floor');
   };
 
+  // Handle back to batch selection
+  const handleBackToBatch = () => {
+    navigate('/batch');
+  };
+
   return (
     <div className="min-h-screen bg-gray-900 text-white px-4 py-24 md:p-8 md:pt-48">
       <div className="max-w-7xl mx-auto">
-        {/* Back button when viewing specific branch */}
-        {branchParam && (
-          <div className="mb-6">
-            <button
-              onClick={handleBackToAllBranches}
-              className="flex items-center text-yellow-500 hover:text-yellow-400 transition-colors duration-200 mb-4 text-sm md:text-base"
-            >
-              <svg className="h-4 w-4 md:h-5 md:w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-              Back to All Branches
-            </button>
-          </div>
-        )}
 
-        <h1 className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-gray-100">
+        <h1 className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-yellow-500">
           {branchParam ? `${displayBranches[0]?.title} Branch` : 'Our Branches'}
         </h1>
         
@@ -117,7 +109,7 @@ const Floor: React.FC = () => {
               >
                 {/* Branch Title */}
                 <div className="bg-gray-900 py-3 md:py-4 px-4 md:px-6 border-b border-gray-700">
-                  <h2 className="text-xl md:text-2xl font-bold text-yellow-500 text-center group-hover:text-yellow-400 transition-colors duration-300">
+                  <h2 className="text-xl md:text-2xl font-bold text-white text-center group-hover:scale-125 transition-scale duration-300">
                     {branch.title}
                   </h2>
                 </div>

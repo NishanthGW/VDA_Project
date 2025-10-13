@@ -18,6 +18,10 @@ const Founder: React.FC = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.9, 1, 1, 0.9]);
 
+  // Reduced parallax effect for mobile
+  const yMobile = useTransform(scrollYProgress, [0, 1], [50, -50]);
+  const yTextMobile = useTransform(scrollYProgress, [0, 1], [0, -15]);
+
   useEffect(() => {
     if (inView) {
       controls.start('visible');
@@ -88,7 +92,7 @@ const Founder: React.FC = () => {
     <motion.section 
       ref={ref}
       style={{ opacity, scale }}
-      className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-12 md:py-20 overflow-hidden" // Changed py-20 to py-12 md:py-20
+      className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-12 md:py-20 overflow-hidden"
     >
       {/* Background decorative elements with parallax */}
       <div className="absolute top-0 left-0 w-full h-full opacity-10 overflow-hidden">
@@ -110,16 +114,19 @@ const Founder: React.FC = () => {
       >
         <motion.h2
           variants={childVariants}
-          className="text-4xl md:text-5xl font-bold text-center text-white mb-0 md:mb-16" // Changed mb-16 to mb-10 md:mb-16
+          className="text-4xl md:text-5xl font-bold text-center text-white mb-10 md:mb-16"
         >
           Meet Our <span className="text-yellow-400">Visionary</span>
         </motion.h2>
         
-        <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-12"> {/* Changed gap-12 to gap-8 md:gap-12 */}
+        <div className="flex flex-col lg:flex-row items-center gap-10 md:gap-12">
+          {/* Image with reduced parallax on mobile */}
           <motion.div
-            style={{ y }}
+            style={{ 
+              y: typeof window !== 'undefined' && window.innerWidth < 768 ? yMobile : y 
+            }}
             variants={imageVariants}
-            className="relative w-72 h-72 lg:w-96 lg:h-96 rounded-2xl overflow-hidden shadow-2xl group"
+            className="relative w-72 h-72 lg:w-96 lg:h-96 rounded-2xl overflow-hidden shadow-2xl group mb-6 lg:mb-0"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 to-purple-600/10 z-10"></div>
             <img
@@ -139,21 +146,19 @@ const Founder: React.FC = () => {
             variants={childVariants} 
             className="flex-1 text-center lg:text-left"
           >
-            {/* <div className="mb-2">
-              <span className="inline-block px-3 py-1 text-xs font-semibold text-yellow-400 bg-yellow-400/10 rounded-full mb-4">
-                LEADERSHIP
-              </span>
-            </div> */}
-            
             <motion.h3 
-              style={{ y: useTransform(scrollYProgress, [0, 1], [0, -30]) }}
-              className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-200 mb-2"
+              style={{ 
+                y: typeof window !== 'undefined' && window.innerWidth < 768 ? yTextMobile : useTransform(scrollYProgress, [0, 1], [0, -30])
+              }}
+              className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-200 mb-4"
             >
               Darwin E S
             </motion.h3>
             
             <motion.p 
-              style={{ y: useTransform(scrollYProgress, [0, 1], [0, -15]) }}
+              style={{ 
+                y: typeof window !== 'undefined' && window.innerWidth < 768 ? yTextMobile : useTransform(scrollYProgress, [0, 1], [0, -15])
+              }}
               className="text-xl text-yellow-400 mb-6"
             >
               Founder & Artistic Director
@@ -162,7 +167,9 @@ const Founder: React.FC = () => {
             <div className="relative">
               <div className="absolute -left-4 top-0 h-12 w-1 bg-yellow-400 rounded-full hidden lg:block"></div>
               <motion.p 
-                style={{ y: useTransform(scrollYProgress, [0, 1], [0, -10]) }}
+                style={{ 
+                  y: typeof window !== 'undefined' && window.innerWidth < 768 ? yTextMobile : useTransform(scrollYProgress, [0, 1], [0, -10])
+                }}
                 className="text-gray-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed text-lg"
               >
                 Darwin is a passionate choreographer and dance educator with over 8 years of experience 
@@ -173,7 +180,7 @@ const Founder: React.FC = () => {
             </div>
             
             <motion.div 
-              className="mt-8 md:mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start" // Changed mt-10 to mt-8 md:mt-10
+              className="mt-8 md:mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
               <motion.button
                 variants={buttonVariants}

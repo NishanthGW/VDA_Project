@@ -5,7 +5,8 @@ const Batch = () => {
   const navigate = useNavigate();
 
   const handleBranchSelect = (branchSlug: string) => {
-    navigate(`/branches?branch=${branchSlug}`);
+    // Navigate to floor with specific branch parameter
+    navigate(`/floor?branch=${branchSlug}`);
   };
 
   const branches = [
