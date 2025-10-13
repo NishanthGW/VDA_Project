@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 
 // Import images
 import cbe1 from '/assets/cbeBat_1.jpg';
@@ -45,7 +44,7 @@ const Branch: React.FC = () => {
   // Get the branch parameter from URL
   const branchParam = searchParams.get('branch');
 
-  // Find the initial branch index based on URL parameter
+  // Find the branch based on URL parameter
   useEffect(() => {
     if (branchParam) {
       const branchIndex = branchData.findIndex(branch => 
@@ -89,20 +88,20 @@ const Branch: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-900 text-white px-4 py-24 md:p-8 md:pt-48">
       <div className="max-w-6xl mx-auto">
-        {/* Back button when viewing specific branch */}
-        {branchParam && (
-          <div className="mb-6">
-            <button
-              onClick={() => navigate('/floor')}
-              className="flex items-center text-yellow-500 hover:text-yellow-400 transition-colors duration-200 mb-4 text-sm md:text-base"
-            >
-              <ChevronLeftIcon className="h-4 w-4 md:h-5 md:w-5 mr-1" />
-              Back to All Branches
-            </button>
-          </div>
-        )}
+        {/* Back button */}
+        <div className="mb-6">
+          <button
+            onClick={() => navigate('/floor')}
+            className="flex items-center text-yellow-500 hover:text-yellow-400 transition-colors duration-200 mb-4 text-sm md:text-base"
+          >
+            <svg className="h-4 w-4 md:h-5 md:w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to Branches
+          </button>
+        </div>
 
-        {/* Navigation Arrows and Title - Only show if viewing all branches */}
+        {/* Navigation Arrows and Title - Show navigation when viewing all branches */}
         {!branchParam && (
           <div className="flex items-center justify-between mb-6 md:mb-8">
             <button
@@ -110,7 +109,9 @@ const Branch: React.FC = () => {
               className="p-2 md:p-3 rounded-full bg-gray-800 hover:bg-gray-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-500"
               aria-label="Previous branch"
             >
-              <ChevronLeftIcon className="h-5 w-5 md:h-6 md:w-6" />
+              <svg className="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
             </button>
             
             <h1 className="text-2xl md:text-4xl font-bold text-center text-gray-100 px-2">
@@ -122,7 +123,9 @@ const Branch: React.FC = () => {
               className="p-2 md:p-3 rounded-full bg-gray-800 hover:bg-gray-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-500"
               aria-label="Next branch"
             >
-              <ChevronRightIcon className="h-5 w-5 md:h-6 md:w-6" />
+              <svg className="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
             </button>
           </div>
         )}

@@ -127,7 +127,7 @@ const TopBar = () => {
               Events
             </Link>
             <Link 
-              to="/floor"
+              to="/branches"
               className="flex items-center px-4 py-2 rounded-lg transition-all duration-300 text-white hover:text-yellow-400 hover:bg-gray-800"
             >
               Branches
@@ -182,7 +182,7 @@ const TopBar = () => {
               Events
             </Link>
             <Link 
-              to="/floor"
+              to="/branches"
               className="text-white hover:text-yellow-400 transition-all duration-300 py-4 px-6 rounded-md hover:bg-gray-800/50 text-lg font-medium"
               onClick={() => setIsMenuOpen(false)}
             >

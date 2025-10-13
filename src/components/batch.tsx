@@ -41,7 +41,7 @@ const Batch = () => {
         <div className="text-center w-full px-4 py-4">
           {/* Header - Fixed for mobile */}
           <h2 className="text-4xl md:text-5xl font-bold mb-6 sm:mb-12 md:mb-16 text-white px-2 py-4">
-            Choose Your <span className="text-yellow-400">Batch</span>
+            Choose Your <span className="text-yellow-400">Branch</span>
           </h2>
           
           {/* Branches Grid - Mobile optimized */}
@@ -50,6 +50,7 @@ const Batch = () => {
               <div 
                 key={branch.id}
                 className="group relative h-56 sm:h-60 md:h-60 w-full max-w-sm sm:max-w-md bg-gray-800 rounded-xl shadow-lg overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-105"
+                onClick={() => handleBranchSelect(branch.slug)}
               >
                 {/* Background Image */}
                 <div 
@@ -60,7 +61,6 @@ const Batch = () => {
                 {/* Content Overlay */}
                 <div 
                   className="flex flex-col p-4 items-start justify-end rounded-xl shadow-lg h-full bg-gradient-to-t from-black/90 via-black/50 to-transparent relative z-10"
-                  onClick={() => handleBranchSelect(branch.slug)}
                 >
                   <div className="w-full">
                     <p className='text-white text-lg sm:text-xl font-bold mb-1 sm:mb-2 text-left'>{branch.name}</p>
