@@ -1,5 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import TopBar from './components/TopBar';
+import SEO from './components/SEO';
+import ScrollToTop from './components/ScrollToTop';
 import Home from './home';
 import Achievements from './components/achievements';
 import Career from './components/career';
@@ -12,22 +15,26 @@ import Batch from './components/batch';
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="min-h-screen bg-black">
-        <TopBar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/achievements" element={<Achievements />} />
-          <Route path="/career" element={<Career />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/floor" element={<Floor />} />
-          <Route path="/branches" element={<Branch />} />
-          <Route path="/trial-class" element={<TrialClass />} />
-          <Route path="/batch" element={<Batch />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
+        <ScrollToTop />
+        <div className="min-h-screen bg-black">
+          <SEO />
+          <TopBar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/achievements" element={<Achievements />} />
+            <Route path="/career" element={<Career />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/events" element={<Events />} />
+            <Route path="/floor" element={<Floor />} />
+            <Route path="/branches" element={<Branch />} />
+            <Route path="/trial-class" element={<TrialClass />} />
+            <Route path="/batch" element={<Batch />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </HelmetProvider>
   );
 }
 

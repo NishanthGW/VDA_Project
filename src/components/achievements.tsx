@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { motion, useAnimation, useInView, type Variants } from 'framer-motion';
 import { Parallax } from 'react-parallax';
+import SEO from './SEO';
 
 interface Achievement {
   title: string;
@@ -66,11 +67,17 @@ const Achievements: React.FC = () => {
   };
 
   return (
-    <Parallax
-      bgImage="/assets/bg_ach.jpg"
-      strength={300}
-      className="bg-cover bg-center min-h-screen"
-    >
+    <>
+      <SEO 
+        title="Achievements - Vibe Dance Academy | Award-Winning Dance School"
+        description="Discover Vibe Dance Academy's achievements and awards. National Dance Championship winner, International Recognition, Community Impact Award, and Best Choreography awards."
+        keywords="dance achievements, dance awards, national dance championship, dance competition winner, best choreography, dance academy awards"
+      />
+      <Parallax
+        bgImage="/assets/bg_ach.jpg"
+        strength={300}
+        className="bg-cover bg-center min-h-screen"
+      >
       <div className="flex bg-black bg-opacity-70 py-8 md:py-16 min-h-screen md:pt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <motion.div
@@ -121,6 +128,7 @@ const Achievements: React.FC = () => {
         </div>
       </div>
     </Parallax>
+    </>
   );
 };
 

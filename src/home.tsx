@@ -8,6 +8,7 @@ import Footer from './components/footer';
 import Videos from './components/videos';
 import Counters from './components/counters';
 import Founder from './components/founder';
+import SEO from './components/SEO';
 
 export default function Home() {
   // const [isLoading, setIsLoading] = useState(true);
@@ -30,19 +31,26 @@ export default function Home() {
   // }
 
   return (
-    <div className="bg-black min-h-screen">
-      <div className="w-full h-[2px] bg-yellow-400"></div>
-      <Slideshow />
-      <Counters />
-      <Videos />
-      {/* <FounderSection /> */}
-      <Founder />
-      <Services />
-      <Batch />
-      <Space />
-      <Feedback />
-      <Join />
-      <Footer />
-    </div>
+    <>
+      <SEO 
+        title="Vibe Dance Academy - Premier Dance Classes in Coimbatore, Palladam & Tiruppur"
+        description="Join Vibe Dance Academy for professional dance training in Coimbatore, Palladam, and Tiruppur. Expert instructors, modern facilities, and multiple dance styles. Book your trial class today!"
+        keywords="dance academy, dance classes, Coimbatore dance, Palladam dance, Tiruppur dance, hip hop, contemporary, classical dance, dance training, dance studio"
+      />
+      <div className="bg-black min-h-screen">
+        <div className="w-full h-[2px] bg-yellow-400"></div>
+        <Slideshow />
+        <Counters />
+        <Videos />
+        {/* <FounderSection /> */}
+        <Founder />
+        <Services />
+        <Batch />
+        <Space />
+        <Feedback />
+        <Join />
+        <Footer />
+      </div>
+    </>
   );
 }

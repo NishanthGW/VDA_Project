@@ -1,8 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
+import { useNavigate } from 'react-router-dom';
 import TopBar from './TopBar';
 
 const About = () => {
+  const navigate = useNavigate();
+  
   // Parallax effect for header
   const headerRef = useRef<HTMLDivElement>(null);
   
@@ -172,7 +175,10 @@ const About = () => {
             Join the Vibe Dance Academy family and experience the joy of movement, the power of expression, 
             and the warmth of our dance community.
           </p>
-          <button className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105">
+          <button 
+            onClick={() => navigate('/trial-class', { state: { formType: 'trial' } })}
+            className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105"
+          >
             Enroll Now
           </button>
         </div>

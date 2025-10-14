@@ -58,9 +58,9 @@ const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div className="text-center mt-8 pt-6 border-t border-gray-700 text-xs sm:text-sm">
+        {/* <div className="text-center mt-8 pt-6 border-t border-gray-700 text-xs sm:text-sm">
           © 2025 Dance Studio. All rights reserved.
-        </div>
+        </div> */}
       </div>
     </footer>
   );

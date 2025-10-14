@@ -1,9 +1,25 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import TopBar from './TopBar';
+import { useNavigate } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
+
 
 const Career = () => {
+  const navigate = useNavigate();
   const parallaxRef = useRef<HTMLDivElement>(null);
+
+  const handleApplicationAlert = () => {
+    toast.error("Applications are currently closed. Please contact our admin at 9566619974 for more information.", {
+      duration: 5000,
+      position: 'top-center',
+      style: {
+        background: '#1f2937',
+        color: '#fff',
+        border: '1px solid #ef4444',
+      },
+    });
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -120,14 +136,15 @@ const Career = () => {
             an environment where passionate dance professionals can thrive, grow, and inspire the next generation 
             of dancers.
           </motion.p>
-          <motion.div 
+          <motion.button 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.4 }}
+            onClick={() => navigate('/about')}
             className="bg-yellow-400 text-black font-bold py-3 px-8 rounded-full inline-block hover:bg-yellow-500 transition-colors duration-300"
           >
-            Our Culture
-          </motion.div>
+            Our Mission
+          </motion.button>
         </div>
       </section>
 
@@ -182,7 +199,10 @@ const Career = () => {
                   <span className="bg-gray-600 text-gray-200 py-1 px-3 rounded-full text-sm">{job.location}</span>
                 </div>
                 <p className="text-gray-300 mb-4">{job.description}</p>
-                <button className="bg-white text-black py-2 px-6 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors duration-300">
+                <button 
+                  onClick={handleApplicationAlert}
+                  className="bg-white text-black py-2 px-6 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors duration-300"
+                >
                   Apply Now
                 </button>
               </motion.div>
@@ -206,6 +226,7 @@ const Career = () => {
           <motion.button 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={handleApplicationAlert}
             className="bg-yellow-400 text-black font-bold py-3 px-8 rounded-full"
           >
             Submit General Application
@@ -218,7 +239,7 @@ const Career = () => {
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <h3 className="text-xl font-bold mb-4">Vibe Dance Academy</h3>
-            <p className="text-gray-400">Inspiring dancers since 2010</p>
+            <p className="text-gray-400">Inspiring dancers since 2015</p>
           </div>
           <div>
             <h3 className="text-xl font-bold mb-4">Contact Us</h3>
@@ -228,9 +249,9 @@ const Career = () => {
           <div>
             <h3 className="text-xl font-bold mb-4">Follow Us</h3>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">Instagram</a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">Facebook</a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">TikTok</a>
+              <a href="https://www.instagram.com/vibe_dance_academy__?igsh=MTI4NXZqdm9sdmV5cQ==" className="text-gray-400 hover:text-pink-500 transition-colors duration-300">Instagram</a>
+              <a href="https://www.facebook.com/share/1H8MCdEwPe/?mibextid=wwXIfr" className="text-gray-400 hover:text-blue-600 transition-colors duration-300">Facebook</a>
+              <a href="https://youtube.com/@vibe_dance_academy?si=fVWvQHTok5bAKM7P" className="text-gray-400 hover:text-red-600 transition-colors duration-300">Youtube</a>
             </div>
           </div>
         </div>
@@ -238,6 +259,7 @@ const Career = () => {
           <p>© {new Date().getFullYear()} Vibe Dance Academy. All rights reserved.</p>
         </div>
       </footer>
+      <Toaster />
     </div>
   );
 };

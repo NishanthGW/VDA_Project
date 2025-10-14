@@ -194,7 +194,7 @@ const Founder: React.FC = () => {
               
               <motion.button
                 variants={buttonVariants}
-                onClick={() => navigate('/achievements')}
+                onClick={() => navigate('/')}
                 whileHover="hover"
                 whileTap="tap"
                 className="px-8 py-4 border-2 border-yellow-400/30 text-yellow-400 font-semibold rounded-xl backdrop-blur-sm"
