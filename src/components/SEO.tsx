@@ -98,6 +98,15 @@ const SEO: React.FC<SEOProps> = ({
       {/* Canonical URL */}
       <link rel="canonical" href={url} />
       
+      {/* Favicon and Icons */}
+      <link rel="icon" type="image/png" sizes="32x32" href="/logo2.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/logo2.png" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/logo2.png" />
+      <link rel="icon" type="image/png" sizes="192x192" href="/logo2.png" />
+      <link rel="icon" type="image/png" sizes="512x512" href="/logo2.png" />
+      <link rel="shortcut icon" href="/logo2.png" />
+      <link rel="manifest" href="/manifest.json" />
+      
       {/* JSON-LD Structured Data */}
       <script type="application/ld+json">
         {JSON.stringify(jsonLd)}

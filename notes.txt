@@ -2,4 +2,4 @@ npm run dev
 
 https://github.com/NishanthGW/VDA_Project.git
 
-git add .; git commit -m "13th Commit / SEO fix"; git push origin main
+git add .; git commit -m "14th Commit / SEO fix"; git push origin main
