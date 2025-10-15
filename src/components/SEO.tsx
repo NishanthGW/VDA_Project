@@ -14,7 +14,7 @@ const SEO: React.FC<SEOProps> = ({
   title = "Vibe Dance Academy - Premier Dance Classes in Coimbatore, Palladam & Tiruppur",
   description = "Join Vibe Dance Academy for professional dance training in Coimbatore, Palladam, and Tiruppur. Expert instructors, modern facilities, and multiple dance styles. Book your trial class today!",
   keywords = "dance academy, dance classes, Coimbatore dance, Palladam dance, Tiruppur dance, hip hop, contemporary, classical dance, dance training, dance studio",
-  image = "/logo2.png",
+  image = "https://www.vibedanceacademy.in/logo2.png",
   url = typeof window !== 'undefined' ? window.location.href : '',
   type = "website",
   siteName = "Vibe Dance Academy"
@@ -24,7 +24,7 @@ const SEO: React.FC<SEOProps> = ({
     "@type": "DanceSchool",
     "name": "Vibe Dance Academy",
     "description": description,
-    "url": "https://vibedanceacademy.com",
+    "url": "https://vibedanceacademy.in",
     "logo": image,
     "image": image,
     "address": [
@@ -81,6 +81,8 @@ const SEO: React.FC<SEOProps> = ({
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:image:alt" content="Vibe Dance Academy Logo" />
+      <meta property="og:image:type" content="image/png" />
+      <meta property="og:image:secure_url" content={image} />
       
       {/* Twitter Card Tags */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -98,16 +100,15 @@ const SEO: React.FC<SEOProps> = ({
       {/* Canonical URL */}
       <link rel="canonical" href={url} />
       
-      {/* Favicon and Icons - Google Compatible */}
+      {/* Favicon and Icons */}
       <link rel="icon" type="image/x-icon" href="/favicon.ico" />
       <link rel="icon" type="image/png" sizes="16x16" href="/logo2.png" />
       <link rel="icon" type="image/png" sizes="32x32" href="/logo2.png" />
       <link rel="icon" type="image/png" sizes="48x48" href="/logo2.png" />
       <link rel="icon" type="image/png" sizes="192x192" href="/logo2.png" />
       <link rel="icon" type="image/png" sizes="512x512" href="/logo2.png" />
-      <link rel="apple-touch-icon" sizes="180x180" href="/logo2.png" />
-      <link rel="shortcut icon" href="/favicon.ico" />
       <link rel="manifest" href="/manifest.json" />
+      <link rel="shortcut icon" href="/favicon.ico" />
       
       {/* JSON-LD Structured Data */}
       <script type="application/ld+json">

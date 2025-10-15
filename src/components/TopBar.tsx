@@ -182,7 +182,7 @@ const TopBar = () => {
               Events
             </Link>
             <Link 
-              to="/branches"
+              to="/floor"
               className="text-white hover:text-yellow-400 transition-all duration-300 py-4 px-6 rounded-md hover:bg-gray-800/50 text-lg font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
