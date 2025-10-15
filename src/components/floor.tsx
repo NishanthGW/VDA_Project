@@ -41,13 +41,24 @@ const Floor: React.FC = () => {
   const [currentImageIndexes, setCurrentImageIndexes] = useState<number[]>(
     branchSections.map(() => 0)
   );
+  const [currentBranchIndex, setCurrentBranchIndex] = useState<number>(0);
 
   // Get branch parameter from URL
   const branchParam = searchParams.get('branch');
 
+  // Find initial branch index when branchParam changes
+  useEffect(() => {
+    if (branchParam) {
+      const initialIndex = branchSections.findIndex(branch => branch.slug === branchParam.toLowerCase());
+      if (initialIndex !== -1) {
+        setCurrentBranchIndex(initialIndex);
+      }
+    }
+  }, [branchParam]);
+
   // Filter branches if specific branch is selected
   const displayBranches = branchParam 
-    ? branchSections.filter(branch => branch.slug === branchParam.toLowerCase())
+    ? [branchSections[currentBranchIndex]] // Show only current branch
     : branchSections;
 
   // Auto-advance slideshow for each branch
@@ -64,7 +75,6 @@ const Floor: React.FC = () => {
   }, []);
 
   const handleBranchClick = (slug: string) => {
-    // Navigate to branch with the specific branch parameter
     navigate(`/branches?branch=${slug}`);
   };  
 
@@ -76,23 +86,47 @@ const Floor: React.FC = () => {
     );
   };
 
+  // Navigation between branches
+  const goToNextBranch = () => {
+    setCurrentBranchIndex((prevIndex) => 
+      prevIndex === branchSections.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const goToPrevBranch = () => {
+    setCurrentBranchIndex((prevIndex) => 
+      prevIndex === 0 ? branchSections.length - 1 : prevIndex - 1
+    );
+  };
+
   // Handle back to all branches
   const handleBackToAllBranches = () => {
     navigate('/floor');
-  };
-
-  // Handle back to batch selection
-  const handleBackToBatch = () => {
-    navigate('/batch');
   };
 
   return (
     <div className="min-h-screen bg-gray-900 text-white px-4 py-24 md:p-8 md:pt-48">
       <div className="max-w-7xl mx-auto">
 
-        <h1 className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-yellow-500">
-          {branchParam ? `${displayBranches[0]?.title} Branch` : 'Our Branches'}
-        </h1>
+        {/* Header */}
+        <div className="flex items-center justify-center mb-8 md:mb-12">
+          {/* Back Button - Only show when single branch is selected */}
+          {branchParam && (
+            <button
+              onClick={handleBackToAllBranches}
+              className="absolute left-4 md:left-8 flex items-center text-yellow-500 hover:text-yellow-400 transition-colors duration-200 text-sm md:text-base font-medium"
+            >
+              <svg className="w-4 h-4 md:w-5 md:h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              Back
+            </button>
+          )}
+
+          <h1 className="text-3xl md:text-4xl font-bold text-center text-yellow-500">
+            Our Branches
+          </h1>
+        </div>
         
         <div className={`grid gap-6 md:gap-8 ${
           branchParam ? 'grid-cols-1 max-w-2xl mx-auto' : 'grid-cols-1 md:grid-cols-3'
@@ -104,12 +138,42 @@ const Floor: React.FC = () => {
             return (
               <div
                 key={branch.slug}
-                className="bg-gray-800 rounded-xl md:rounded-2xl shadow-lg md:shadow-2xl overflow-hidden hover:shadow-gray-700/50 transition-all duration-300 hover:transform hover:scale-105 cursor-pointer group"
+                className="bg-gray-800 rounded-xl md:rounded-2xl shadow-lg md:shadow-2xl overflow-hidden hover:shadow-gray-700/50 transition-all duration-300 hover:transform hover:scale-105 cursor-pointer group relative"
                 onClick={() => handleBranchClick(branch.slug)}
               >
-                {/* Branch Title */}
-                <div className="bg-gray-900 py-3 md:py-4 px-4 md:px-6 border-b border-gray-700">
-                  <h2 className="text-xl md:text-2xl font-bold text-white text-center group-hover:scale-125 transition-scale duration-300">
+                {/* Branch Title with Navigation Arrows */}
+                <div className="bg-gray-900 py-3 md:py-4 px-4 md:px-6 border-b border-gray-700 relative">
+                  {/* Navigation Arrows - Only show when single branch is selected */}
+                  {branchParam && (
+                    <>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          goToPrevBranch();
+                        }}
+                        className="absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 bg-gray-700 hover:bg-gray-600 text-white p-2 rounded-full transition-all duration-200 hover:scale-110 z-20"
+                        aria-label="Previous branch"
+                      >
+                        <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                        </svg>
+                      </button>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          goToNextBranch();
+                        }}
+                        className="absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 bg-gray-700 hover:bg-gray-600 text-white p-2 rounded-full transition-all duration-200 hover:scale-110 z-20"
+                        aria-label="Next branch"
+                      >
+                        <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </button>
+                    </>
+                  )}
+                  
+                  <h2 className="text-xl md:text-2xl font-bold text-white text-center group-hover:text-yellow-400 transition-colors duration-300 px-8">
                     {branch.title}
                   </h2>
                 </div>

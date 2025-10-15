@@ -65,6 +65,7 @@ const SEO: React.FC<SEOProps> = ({
     <Helmet>
       {/* Basic Meta Tags */}
       <title>{title}</title>
+      <link rel="icon" href="/logo2.png" type="image/png" />
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
       <meta name="author" content="Vibe Dance Academy" />
