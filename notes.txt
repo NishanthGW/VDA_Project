@@ -2,4 +2,4 @@ npm run dev
 
 https://github.com/NishanthGW/VDA_Project.git
 
-git add .; git commit -m "19th Commit / SEO logo fix"; git push origin main
+git add .; git commit -m "20th Commit / SEO logo resize"; git push origin main
