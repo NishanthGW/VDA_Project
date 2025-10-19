@@ -13,23 +13,75 @@ interface Event {
 // Sample event data - updated with all services from Services.tsx
 const eventsData: Event[] = [
   {
-    id: 1,
-    title: "Regular Classes",
-    description: "Daily dance training sessions with our expert instructors",
-    images: [
-      "https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGRhbmNlJTIwY2xhc3N8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
-      "https://images.unsplash.com/photo-1508700929628-666bc8bd84ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGRhbmNlJTIwY2xhc3N8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
-      "https://images.unsplash.com/photo-1518458028785-8fbcd101ebb9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGRhbmNlJTIwY2xhc3N8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60"
-    ]
-  },
-  {
     id: 2,
     title: "Wedding Events",
     description: "Elegant dance performances for your special day",
     images: [
-      "https://images.unsplash.com/photo-1583939003579-730e3918a45a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d2VkZGluZyUyMGRhbmNlfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
-      "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8d2VkZGluZyUyMGRhbmNlfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
-      "https://images.unsplash.com/photo-1519677100203-a0e668c92439?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHdlZGRpbmclMjBkYW5jZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
+      "assets/wedding/wed4.jpg",
+      "assets/wedding/wed2.jpg",
+      "assets/wedding/wed3.jpg",
+    ]
+  },
+  {
+    id: 11,
+    title: "Competition Jury",
+    description: "Professional judging services for dance competitions",
+    images: [
+      "assets/jury/jry2.jpg",
+      "assets/jury/jry1.jpg",
+      "assets/jury/jry3.jpg",      
+    ]
+  },
+  {
+    id: 7,
+    title: "School Choreographies",
+    description: "Creative dance routines for school events and competitions",
+    images: [    
+      "assets/school/sch2.jpg",
+      "assets/school/sch1.jpg",   
+      "assets/school/sch3.jpg",      
+    ]
+  },
+  {
+    id: 12,
+    title: "Video Productions",
+    description: "Professional dance videos and choreography recordings",
+    images: [          
+      "assets/video/vp3.jpg",
+      "assets/video/vp4.jpg",
+      "assets/video/vp1.jpg",
+      "assets/video/vp2.jpg",
+      "assets/video/vp5.jpg",
+    ]
+  },
+  {
+    id: 5,
+    title: "Puberty Functions",
+    description: "Traditional celebrations for coming-of-age ceremonies",
+    images: [
+      "assets/puberty/pub2.jpg",
+      "assets/puberty/pub1.jpg",
+      "assets/puberty/pub3.jpg",      
+    ]
+  },
+  {
+    id: 4,
+    title: "Sangeet Events",
+    description: "Vibrant dance performances for pre-wedding celebrations",
+    images: [      
+      "assets/sangeet/sng1.jpg",
+      "assets/sangeet/sng3.jpg",
+      "assets/sangeet/sng2.jpg",
+    ]
+  },
+  {
+    id: 1,
+    title: "Regular Classes",
+    description: "Daily dance training sessions with our expert instructors",
+    images: [
+      "assets/regular/rg5.jpg",
+      "assets/regular/rg1.jpg",
+      "assets/regular/rg6.jpg",
     ]
   },
   {
@@ -43,40 +95,11 @@ const eventsData: Event[] = [
     ]
   },
   {
-    id: 4,
-    title: "Sangeet Events",
-    description: "Vibrant dance performances for pre-wedding celebrations",
-    images: [
-      "https://images.unsplash.com/photo-1520854221256-17451cc331bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c2FuZ2VldCUyMGNlcmVtb255fGVufDB8fDB8fHww&auto=format&fit=c crop&w=600&q=60",
-      "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHNhbmdlZXQlMjBjZXJlbW9ueXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
-    ]
-  },
-  {
-    id: 5,
-    title: "Puberty Functions",
-    description: "Traditional celebrations for coming-of-age ceremonies",
-    images: [
-      "assets/sangeet.jpg",
-      "assets/pube.jpg",
-      "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRyYWRpdGlvbmFsJTIwY2VyZW1vbnl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60"
-    ]
-  },
-  {
     id: 6,
     title: "Flash Mobs",
     description: "Surprise performances that captivate audiences",
     images: [
-      "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGZsYXNoJTIwbW9ifGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
-      "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGZsYXNoJTIwbW9ifGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60"
-    ]
-  },
-  {
-    id: 7,
-    title: "School Choreographies",
-    description: "Creative dance routines for school events and competitions",
-    images: [
-      "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHNjaG9vbCUyMGRhbmNlfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
-      "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHNjaG9vbCU20MGRhbmNlfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60"
+      "assets/events/fm.jpeg",      
     ]
   },
   {
@@ -84,8 +107,8 @@ const eventsData: Event[] = [
     title: "Home Tuitions",
     description: "Personalized dance training in the comfort of your home",
     images: [
-      "https://images.unsplash.com/photo-1580519542036-c47de6196ba5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGhvbWUlMjB0dWl0aW9ufGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
-      "https://images.unsplash.com/photo-1591115765373-5207764f72e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGhvbWUlMjB0dWl0aW9ufGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60"
+      "assets/events/hm.jpeg",
+      
     ]
   },
   {
@@ -93,8 +116,7 @@ const eventsData: Event[] = [
     title: "Online Classes",
     description: "Virtual dance training sessions from anywhere",
     images: [
-      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fG9ubGluZSUyMGNsYXNzZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
-      "https://images.unsplash.com/photo-1576086213369-97a306d36557?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fG9ubGluZSUyMGNsYXNzZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60"
+      "assets/events/onl.jpeg",      
     ]
   },
   {
@@ -102,26 +124,7 @@ const eventsData: Event[] = [
     title: "Apartment Classes",
     description: "Community-based dance lessons for residents",
     images: [
-      "https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFwYXJ0bWVudCUyMGNvbW11bml0eXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
-      "https://images.unsplash.com/photo-1574362848142-4dde301d6c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fGFwYXJ0bWVudCUyMGNvbW11bml0eXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
-    ]
-  },
-  {
-    id: 11,
-    title: "Competition Jury",
-    description: "Professional judging services for dance competitions",
-    images: [
-      "https://images.unsplash.com/photo-1545102168-9a41492d8532?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGRhbmNlJTIwY29tcGV0aXRpb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60",
-      "https://images.unsplash.com/photo-1511632765481-2b35c53b8a70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGRhbmNlJTIwY29tcGV0aXRpb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60"
-    ]
-  },
-  {
-    id: 12,
-    title: "Video Productions",
-    description: "Professional dance videos and choreography recordings",
-    images: [
-      "https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dmlkZW8lMjBwcm9kdWN0aW9ufGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
-      "https://images.unsplash.com/photo-1562949566-2c296963e685?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHZpZGVvJTIwcHJvZHVjdGlvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
+      "assets/events/apt.jpeg",
     ]
   }
 ];
@@ -216,7 +219,7 @@ const Events: React.FC = () => {
       {/* Events Grid */}
       <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-12 text-yellow-400">
-          Event Categories
+          Events Gallery
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

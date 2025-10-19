@@ -11,24 +11,44 @@ interface Achievement {
 
 const achievements: Achievement[] = [
   {
-    title: 'National Dance Championship',
-    description: 'Won first place in the National Hip-Hop Dance Competition',
+    title: 'Best Dance Academy in Tirupur',
+    description: 'Won the "Best Dance Academy" award from TirupurTalks for two consecutive years',
+    year: '2023-2024',
+  },
+  {
+    title: 'Best Dance Choreographer',
+    description: 'Founder Darwin VDA received the "Best Dance Choreographer" award from Indian choreographer Sridhar',
     year: '2024',
   },
   {
-    title: 'International Recognition',
-    description: "Featured in Global Dance Magazine's Top 10 Academies",
-    year: '2023',
+    title: 'YouTube Silver Play Button',
+    description: 'Awarded for surpassing 100,000 subscribers on YouTube',
+    year: '2024',
   },
   {
-    title: 'Community Impact Award',
-    description: 'Recognized for outstanding contribution to local youth through dance',
-    year: '2022',
+    title: 'World Record Participation',
+    description: 'Students participated in a 24-hour individual talent world record event in Coimbatore',
+    year: '2025',
   },
   {
-    title: 'Best Choreography',
-    description: 'Received award for innovative choreography at DanceFest',
-    year: '2021',
+    title: 'Intra Academy Competitions',
+    description: 'Regularly holds Intra Dance Competitions to provide performance opportunities for students',
+    year: '2025',
+  },
+  {
+    title: 'Public Performances',
+    description: 'Featured emotionally powerful choreography for songs like "Kathari Poovazhagi"',
+    year: '2025',
+  },
+  {
+    title: 'Significant Online Following',
+    description: 'Built large engaged audience on Instagram and YouTube with dance videos and updates',
+    year: '2024-2025',
+  },
+  {
+    title: 'Prominent Dance Influencers',
+    description: 'Darwin, Gracy & Prakash are popular social media influencers with large followings',
+    year: '2024-2025',
   },
 ];
 
@@ -70,8 +90,8 @@ const Achievements: React.FC = () => {
     <>
       <SEO 
         title="Achievements - Vibe Dance Academy | Award-Winning Dance School"
-        description="Discover Vibe Dance Academy's achievements and awards. National Dance Championship winner, International Recognition, Community Impact Award, and Best Choreography awards."
-        keywords="dance achievements, dance awards, national dance championship, dance competition winner, best choreography, dance academy awards"
+        description="Discover Vibe Dance Academy's achievements including Best Dance Academy awards, YouTube Silver Play Button, world record participation, and prominent social media presence across Tamil Nadu."
+        keywords="Vibe Dance Academy achievements, Best Dance Academy Tirupur, YouTube Silver Play Button, Darwin VDA, dance world record, intra dance competitions, Tamil Nadu dance academy"
       />
       <Parallax
         bgImage="/assets/bg_ach.jpg"
@@ -90,7 +110,7 @@ const Achievements: React.FC = () => {
               Vibe Dance Academy Achievements
             </h2>
             <p className="mt-2 md:mt-4 text-base md:text-lg text-gray-300 px-4">
-              Celebrating our journey of excellence in dance
+              Celebrating excellence across Tirupur, Palladam, and Coimbatore
             </p>
           </motion.div>
 
