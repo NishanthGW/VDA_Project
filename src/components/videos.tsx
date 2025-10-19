@@ -21,7 +21,7 @@ const Videos = () => {
 
   return (
     <div className="relative bg-[url('/assets/bg_celeb.png')] bg-contain bg-center">
-      <div className="bg-black/85 container mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20 lg:pb-28 pt-12 sm:pt-16 lg:pt-20">
+      <div className="bg-black/85 w-full container mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20 lg:pb-28 pt-12 sm:pt-16 lg:pt-20">
         <h1 className="text-white text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 lg:mb-16 px-4">
           Featured <span className="text-yellow-400">Videos</span>
         </h1>
