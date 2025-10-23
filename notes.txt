@@ -3,5 +3,5 @@ npm run dev
 https://github.com/NishanthGW/VDA_Project.git
 
 git add .
-git commit -m "27th Commit / website logo issue fix"
+git commit -m "28th Commit / website logo issue fix"
 git push origin main
