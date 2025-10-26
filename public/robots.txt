@@ -2,7 +2,11 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://vibedanceacademy.com/sitemap.xml
+Sitemap: https://www.vibedanceacademy.in/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1
+
+# Disallow admin areas if any
+Disallow: /admin/
+Disallow: /private/

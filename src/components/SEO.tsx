@@ -14,9 +14,9 @@ interface SEOProps {
 const CANONICAL_BASE_URL = "https://www.vibedanceacademy.in";
 
 const SEO: React.FC<SEOProps> = ({
-  title = "Vibe Dance Academy - Premier Dance Classes in Coimbatore, Palladam & Tiruppur",
-  description = "Join Vibe Dance Academy for professional dance training in Coimbatore, Palladam, and Tiruppur. Expert instructors, modern facilities, and multiple dance styles. Book your trial class today!",
-  keywords = "dance academy, dance classes, Coimbatore dance, Palladam dance, Tiruppur dance, hip hop, contemporary, classical dance, dance training, dance studio",
+  title = "Best Dance Academy in Coimbatore, Tiruppur & Palladam - Vibe Dance Academy | Top Dance Classes Tamil Nadu",
+  description = "Best dance academy in Coimbatore, Tiruppur & Palladam. Join Vibe Dance Academy for professional dance training in Tamil Nadu. Expert instructors, modern facilities, and multiple dance styles. Book your trial class today!",
+  keywords = "best dance academy in Coimbatore, best dance academy in Tiruppur, best dance academy in Palladam, dance academy in Tamil Nadu, top dance academy Coimbatore, professional dance classes Coimbatore, hip hop classes Tiruppur, contemporary dance Palladam, classical dance Tamil Nadu, best dance school Coimbatore, dance academy Tamil Nadu",
   image = `${CANONICAL_BASE_URL}/logo2.png`, 
   url = typeof window !== 'undefined' 
       ? `${CANONICAL_BASE_URL}${window.location.pathname}` 

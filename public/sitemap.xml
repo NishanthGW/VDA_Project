@@ -1,57 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://vibedanceacademy.com/</loc>
-    <lastmod>2024-01-01</lastmod>
+    <loc>https://www.vibedanceacademy.in/</loc>
+    <lastmod>2024-12-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://vibedanceacademy.com/achievements</loc>
-    <lastmod>2024-01-01</lastmod>
+    <loc>https://www.vibedanceacademy.in/achievements</loc>
+    <lastmod>2024-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vibedanceacademy.com/about</loc>
-    <lastmod>2024-01-01</lastmod>
+    <loc>https://www.vibedanceacademy.in/about</loc>
+    <lastmod>2024-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vibedanceacademy.com/career</loc>
-    <lastmod>2024-01-01</lastmod>
+    <loc>https://www.vibedanceacademy.in/career</loc>
+    <lastmod>2024-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://vibedanceacademy.com/events</loc>
-    <lastmod>2024-01-01</lastmod>
+    <loc>https://www.vibedanceacademy.in/events</loc>
+    <lastmod>2024-12-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vibedanceacademy.com/floor</loc>
-    <lastmod>2024-01-01</lastmod>
+    <loc>https://www.vibedanceacademy.in/floor</loc>
+    <lastmod>2024-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vibedanceacademy.com/branches</loc>
-    <lastmod>2024-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vibedanceacademy.com/trial-class</loc>
-    <lastmod>2024-01-01</lastmod>
+    <loc>https://www.vibedanceacademy.in/branches</loc>
+    <lastmod>2024-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://vibedanceacademy.com/batch</loc>
-    <lastmod>2024-01-01</lastmod>
+    <loc>https://www.vibedanceacademy.in/trial-class</loc>
+    <lastmod>2024-12-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.vibedanceacademy.in/batch</loc>
+    <lastmod>2024-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.vibedanceacademy.in/videos</loc>
+    <lastmod>2024-12-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.vibedanceacademy.in/services</loc>
+    <lastmod>2024-12-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
