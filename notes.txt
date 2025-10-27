@@ -3,5 +3,5 @@ npm run dev
 https://github.com/NishanthGW/VDA_Project.git
 
 git add .
-git commit -m "32th Commit / Image changed"
+git commit -m "33th Commit / Image changed"
 git push origin main
