@@ -3,5 +3,5 @@ npm run dev
 https://github.com/NishanthGW/VDA_Project.git
 
 git add .
-git commit -m "30th Commit / search improvement"
+git commit -m "31th Commit / SEO optimization - Add dance class keywords for better search rankings"
 git push origin main

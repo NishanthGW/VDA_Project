@@ -44,6 +44,10 @@
 
 ### Primary Keywords:
 
+- ✅ "best dance class in Coimbatore"
+- ✅ "best dance class in Tiruppur"
+- ✅ "best dance class in Palladam"
+- ✅ "best dance class in Tamil Nadu"
 - ✅ "best dance academy in Coimbatore"
 - ✅ "best dance academy in Tiruppur"
 - ✅ "best dance academy in Palladam"
@@ -53,6 +57,7 @@
 ### Secondary Keywords:
 
 - ✅ "top dance academy Coimbatore"
+- ✅ "top dance class Coimbatore"
 - ✅ "professional dance classes Coimbatore"
 - ✅ "hip hop classes Tiruppur"
 - ✅ "contemporary dance Palladam"

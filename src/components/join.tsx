@@ -228,7 +228,7 @@ const Join = () => {
                     name="childAge"
                     type="number"
                     min="3"
-                    max="18"
+                    max="80"
                     value={formData.childAge}
                     onChange={handleInputChange}
                     placeholder="Enter student's age"
