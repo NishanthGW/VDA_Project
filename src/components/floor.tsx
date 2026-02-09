@@ -99,9 +99,9 @@ const Floor: React.FC = () => {
     );
   };
 
-  // Handle back to all branches
+  // Handle back to home page - batch section
   const handleBackToAllBranches = () => {
-    navigate('/floor');
+    navigate('/#batch');
   };
 
   return (

@@ -4,6 +4,10 @@ import { useNavigate } from 'react-router-dom';
 const Batch = () => {
   const navigate = useNavigate();
 
+  const handleBack = () => {
+    navigate(-1);
+  };
+
   const handleBranchSelect = (branchSlug: string) => {
     // Navigate to floor with specific branch parameter
     navigate(`/floor?branch=${branchSlug}`);
@@ -46,7 +50,7 @@ const Batch = () => {
           </h2>
           
           {/* Branches Grid - Mobile optimized */}
-          <div className="flex flex-col md:flex-row justify-center items-center gap-4 sm:gap-6 w-full max-w-6xl mx-auto pb-4">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-4 sm:gap-6 w-full mx-auto pb-4">
             {branches.map((branch) => (
               <div 
                 key={branch.id}

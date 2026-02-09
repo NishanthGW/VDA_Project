@@ -60,20 +60,20 @@ const Branch: React.FC = () => {
     const newIndex = (currentIndex + 1) % branchData.length;
     setCurrentIndex(newIndex);
     // Update URL when navigating
-    navigate(`/branches?branch=${branchData[newIndex].slug}`, { replace: true });
+    navigate(`/branches?branch=${branchData[newIndex].slug}`);
   };
 
   const prevBranch = () => {
     const newIndex = currentIndex === 0 ? branchData.length - 1 : currentIndex - 1;
     setCurrentIndex(newIndex);
     // Update URL when navigating
-    navigate(`/branches?branch=${branchData[newIndex].slug}`, { replace: true });
+    navigate(`/branches?branch=${branchData[newIndex].slug}`);
   };
 
   const goToBranch = (index: number) => {
     setCurrentIndex(index);
     // Update URL when changing branches via dots
-    navigate(`/branches?branch=${branchData[index].slug}`, { replace: true });
+    navigate(`/branches?branch=${branchData[index].slug}`);
   };
 
   const currentBranch = branchData[currentIndex];
@@ -87,7 +87,7 @@ const Branch: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white px-4 py-24 md:p-8 md:pt-48">
-      <div className="max-w-6xl mx-auto">
+      <div className="mx-auto">
         {/* Back button */}
         <div className="mb-6">
           <button
@@ -159,7 +159,7 @@ const Branch: React.FC = () => {
                   src={image}
                   alt={`${displayBranch.title} ${index + 1}`}
                   className="w-full h-auto max-w-full object-contain"
-                  style={{ maxHeight: '300px' }}
+                  style={{ maxHeight: '500px' }}
                 />
               </div>
             </div>

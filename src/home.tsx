@@ -45,7 +45,9 @@ export default function Home() {
         {/* <FounderSection /> */}
         <Founder />
         <Services />
-        <Batch />
+        <div id="batch">
+          <Batch />
+        </div>
         <Space />
         <Feedback />
         <Join />
