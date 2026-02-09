@@ -26,14 +26,14 @@ const Batch = () => {
       image: '/assets/palladam.png',
       slug: 'palladam'
     },
-    {
-      id: 3,
-      name: 'Tiruppur',
-      address: '15, Velampalayam, Avinashi road, Tirupur - 641652',
-      hours: 'Hours: 6 AM - 9 PM',
-      image: '/assets/tiruppur.png',
-      slug: 'tirupur'
-    }
+    // {
+    //   id: 3,
+    //   name: 'Tiruppur',
+    //   address: '15, Velampalayam, Avinashi road, Tirupur - 641652',
+    //   hours: 'Hours: 6 AM - 9 PM',
+    //   image: '/assets/tiruppur.png',
+    //   slug: 'tirupur'
+    // }
   ];
 
   return (
@@ -50,13 +50,14 @@ const Batch = () => {
             {branches.map((branch) => (
               <div 
                 key={branch.id}
-                className="group relative h-56 sm:h-60 md:h-60 w-full max-w-sm sm:max-w-md bg-gray-800 rounded-xl shadow-lg overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-105"
+                className="group relative h-56 sm:h-60 md:h-60 w-full max-w-sm sm:max-w-md rounded-xl shadow-lg overflow-hidden cursor-pointer transition-transform duration-300 bg-gray-800"
                 onClick={() => handleBranchSelect(branch.slug)}
               >
                 {/* Background Image */}
                 <div 
-                  className="absolute inset-0 bg-cover bg-center transition-all duration-500 ease-in-out transform group-hover:scale-110"
+                  className="absolute inset-0 bg-cover bg-center transition-all duration-500 ease-in-out transform group-hover:scale-110 will-change-transform transform-gpu"
                   style={{ backgroundImage: `url(${branch.image})` }}
+                  
                 />
                 
                 {/* Content Overlay */}

@@ -28,11 +28,11 @@ const branchSections: BranchSection[] = [
     images: [pdm1, pdm2, pdm3],
     slug: 'palladam'
   },
-  {
-    title: 'Tirupur',
-    images: [tpr2, tpr3],
-    slug: 'tirupur'
-  }
+  // {
+  //   title: 'Tirupur',
+  //   images: [tpr2, tpr3],
+  //   slug: 'tirupur'
+  // }
 ];
 
 const Floor: React.FC = () => {
@@ -129,7 +129,7 @@ const Floor: React.FC = () => {
         </div>
         
         <div className={`grid gap-6 md:gap-8 ${
-          branchParam ? 'grid-cols-1 max-w-2xl mx-auto' : 'grid-cols-1 md:grid-cols-3'
+          branchParam ? 'grid-cols-1 max-w-2xl mx-auto' : 'grid-cols-1 md:grid-cols-2'
         }`}>
           {displayBranches.map((branch, branchIndex) => {
             // Find the original index for image tracking
