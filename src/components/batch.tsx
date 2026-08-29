@@ -16,11 +16,11 @@ const Batch = () => {
   const branches = [
     {
       id: 1,
-      name: 'Coimbatore',
-      address: 'Above CSB Bank, Sathy road, Ganapathy - 641006',
+      name: 'Ganapathy - Coimbatore',
+      address: 'Above CSB Bank, Sathy road, Ganapathy, Coimbatore - 641006',
       hours: 'Hours: 6 AM - 9 PM',
       image: '/assets/covai.png',
-      slug: 'coimbatore'
+      slug: 'coimbatore',
     },
     {
       id: 2,
@@ -28,7 +28,15 @@ const Batch = () => {
       address: 'Near SV Clinic, Kosavampalayam road, Palladam - 641664',
       hours: 'Hours: 6 AM - 9 PM',
       image: '/assets/palladam.png',
-      slug: 'palladam'
+      slug: 'palladam',
+    },
+    {
+      id: 3,
+      name: 'Saravanampatti - Coimbatore',
+      address: 'Sakthy Square, Mani Nagar, Saravanampatti, Coimbatore - 641035',
+      hours: 'Hours: 6 AM - 9 PM',
+      image: '/assets/saravanampatti.jpg',
+      slug: 'saravanampatti',
     },
     // {
     //   id: 3,
@@ -48,34 +56,37 @@ const Batch = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6 sm:mb-12 md:mb-16 text-white px-2 py-4">
             Choose Your <span className="text-yellow-400">Branch</span>
           </h2>
-          
+
           {/* Branches Grid - Mobile optimized */}
           <div className="flex flex-col md:flex-row justify-center items-center gap-4 sm:gap-6 w-full mx-auto pb-4">
             {branches.map((branch) => (
-              <div 
+              <div
                 key={branch.id}
-                className="group relative h-56 sm:h-60 md:h-60 w-full max-w-sm sm:max-w-md rounded-xl shadow-lg overflow-hidden cursor-pointer transition-transform duration-300 bg-gray-800"
+                className="group relative h-80 sm:h-96 md:h-96 w-full max-w-sm sm:max-w-md rounded-xl shadow-lg overflow-hidden cursor-pointer transition-transform duration-300 bg-gray-800"
                 onClick={() => handleBranchSelect(branch.slug)}
               >
                 {/* Background Image */}
-                <div 
+                <div
                   className="absolute inset-0 bg-cover bg-center transition-all duration-500 ease-in-out transform group-hover:scale-110 will-change-transform transform-gpu"
                   style={{ backgroundImage: `url(${branch.image})` }}
-                  
                 />
-                
+
                 {/* Content Overlay */}
-                <div 
-                  className="flex flex-col p-4 items-start justify-end rounded-xl shadow-lg h-full bg-gradient-to-t from-black/90 via-black/50 to-transparent relative z-10"
-                >
+                <div className="flex flex-col p-4 items-start justify-end rounded-xl shadow-lg h-full bg-gradient-to-t from-black/90 via-black/50 to-transparent relative z-10">
                   <div className="w-full">
-                    <p className='text-white text-lg sm:text-xl font-bold mb-1 sm:mb-2 text-left'>{branch.name}</p>
-                    <p className='text-gray-200 text-xs sm:text-sm mb-1 sm:mb-2 text-left leading-tight'>{branch.address}</p>
-                    <p className='text-gray-300 text-xs sm:text-sm mb-3 sm:mb-4 text-left'>{branch.hours}</p>
-                    
+                    <p className="text-white text-lg sm:text-xl font-bold mb-1 sm:mb-2 text-left">
+                      {branch.name}
+                    </p>
+                    <p className="text-gray-200 text-xs sm:text-sm mb-1 sm:mb-2 text-left leading-tight">
+                      {branch.address}
+                    </p>
+                    <p className="text-gray-300 text-xs sm:text-sm mb-3 sm:mb-4 text-left">
+                      {branch.hours}
+                    </p>
+
                     {/* Button Container */}
                     <div className="flex justify-start">
-                      <button 
+                      <button
                         className="bg-black/60 hover:bg-gray-700 backdrop-blur-sm text-white py-2 px-4 rounded-lg border border-white/30 transition-all duration-300 text-sm font-medium hover:scale-105 active:scale-95"
                         onClick={(e) => {
                           e.stopPropagation();

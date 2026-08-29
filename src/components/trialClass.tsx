@@ -548,6 +548,7 @@ const TrialClass = () => {
                             <option value="">Select a location</option>
                             <option value="coimbatore">Coimbatore Studio</option>
                             <option value="palladam">Palladam Studio</option>
+                            <option value="saravanampatti">Saravanampatti Studio</option>
                             <option value="tirupur">Tirupur Studio</option>
                           </select>
                           <FaMapMarkerAlt className="absolute right-3 top-3.5 text-gray-400 pointer-events-none" />

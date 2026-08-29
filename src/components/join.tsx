@@ -35,6 +35,7 @@ const Join = () => {
     { value: '', label: 'Select Branch' },
     { value: 'coimbatore', label: 'Coimbatore Studio' },
     { value: 'palladam', label: 'Palladam Studio' },
+    { value: 'saravanampatti', label: 'Saravanampatti Studio' },
     { value: 'tirupur', label: 'Tirupur Studio' }
   ];
 

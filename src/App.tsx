@@ -18,7 +18,7 @@ function App() {
     <HelmetProvider>
       <BrowserRouter>
         <ScrollToTop />
-        <div className="min-h-screen bg-black">
+        <div className="min-h-screen bg-[#071d35]">
           <SEO />
           <TopBar />
           <Routes>

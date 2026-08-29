@@ -1,4 +1,4 @@
-import Slideshow from "./components/Slideshow";
+import Slideshow from './components/Slideshow';
 import Batch from './components/batch';
 import Services from './components/services';
 import Space from './components/space';
@@ -32,8 +32,8 @@ export default function Home() {
 
   return (
     <>
-      <SEO 
-        title="Vibe Dance Academy - Premier Dance Classes in Coimbatore, Palladam & Tiruppur"
+      <SEO
+        title="Vibe Dance Academy - Best Dance Academy in Coimbatore, Palladam & Tiruppur"
         description="Join Vibe Dance Academy for professional dance training in Coimbatore, Palladam, and Tiruppur. Expert instructors, modern facilities, and multiple dance styles. Book your trial class today!"
         keywords="dance academy, dance classes, Coimbatore dance, Palladam dance, Tiruppur dance, hip hop, contemporary, classical dance, dance training, dance studio"
       />
