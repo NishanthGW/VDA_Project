@@ -62,7 +62,7 @@ const Batch = () => {
             {branches.map((branch) => (
               <div
                 key={branch.id}
-                className="group relative h-80 sm:h-96 md:h-96 w-full max-w-sm sm:max-w-md rounded-xl shadow-lg overflow-hidden cursor-pointer transition-transform duration-300 bg-gray-800"
+                className="group relative h-56 sm:h-60 md:h-60 w-full max-w-sm sm:max-w-md rounded-xl shadow-lg overflow-hidden cursor-pointer transition-transform duration-300 bg-gray-800"
                 onClick={() => handleBranchSelect(branch.slug)}
               >
                 {/* Background Image */}
